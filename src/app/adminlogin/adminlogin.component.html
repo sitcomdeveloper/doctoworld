@@ -1,39 +1,53 @@
-
-<!-- <div class="imagebackground" data-vide-bg="video/patient"> -->
-  <div class="center-container">
-    <h1 class="header-w3ls">DoctoWorld</h1>
-
-    <div class="content-top">
-      <div class="content-w3ls">
-        <form action="#" method="post">
-        <div class="form-w3ls">
-
-            <div class="content-wthree1">
-              <div class="grid-agileits1">
-                <div class="form-control">
-                  <!-- <label class="header">Name <span>*</span></label> -->
-                  <input type="text" id="name" name="name" placeholder="DoctorId" title="Please enter your Id " required="">
-                </div>
+<router-outlet></router-outlet>
+<section class="w3l-workinghny-form">
+  <!-- /form -->
+  <div class="workinghny-form-grid">
+      <div class="wrapper">
+          <div class="logo">
+              <h1><a class="brand-logo"><span>Welcome to </span> DoctoWorld</a></h1>
+              <!-- if logo is image enable this
+                  <a class="brand-logo" href="#index.html">
+                      <img src="image-path" alt="Your logo" title="Your logo" style="height:35px;" />
+                  </a> -->
+          </div>
+          <div class="workinghny-block-grid">
+              <div class="workinghny-left-img align-end">
+                  <img src="assets/doctoworldlogo.jpeg" class="img-responsive" alt="img" />
               </div>
-            </div>
-        </div>
-        <div class="form-w3ls-1">
+              <div class="form-right-inf">
 
-              <div class="form-control">
-                <!-- <label class="header">Address <span>*</span></label> -->
-                <input type="password" id="name" name="name" placeholder="Password" title="Please enter your Password" required="">
-              </div>
-              <div class="wthreesubmitaits">
-                <input type="submit" name="submit" value="Submit">
-              </div>
+                  <div class="login-form-content">
+                      <!-- <h2>Where to?</h2> -->
+                      <form action="#" class="signin-form" method="post">
+          <div class="one-frm">
 
-        </div>
-      </form>
+            <label>Doctor Id</label>
+            <input type="text" name="Name"  placeholder="" required="">
+          </div>
+          <div class="one-frm">
+            <label>Password</label>
+            <input type="password" name="Password"  placeholder="" required="">
+          </div>
+                          <label class="check-remaind">
+                              <input type="checkbox">
+                              <!-- <span class="checkmark"></span> -->
+                              <!-- <p class="remember">Remember Me</p> -->
+
+                          </label>
+                          <button class="btn btn-style mt-3" (click)="movetodashboard()">Sign In </button>
+                          <!-- <p class="already">Don't have an account? <a href="#signin">Sign Up</a></p> -->
+                      </form>
+                  </div>
+              </div>
+          </div>
       </div>
-
-    </div>
-
   </div>
-  <!-- <p class="copyright">© 2020. All Rights Reserved | Design by <a href="javascript:void(0);" target="_blank">Sitcom Technology</a></p> -->
-<!-- </div> -->
-
+  <!-- //form -->
+  <!-- copyright-->
+  <div class="copyright text-center">
+      <div class="wrapper">
+          <p class="copy-footer-29">© 2020 DoctoWorld Admin</p>
+      </div>
+  </div>
+  <!-- //copyright-->
+</section>
