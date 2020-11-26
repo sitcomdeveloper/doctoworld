@@ -10,10 +10,14 @@ import { DepartmentsComponent } from './departments/departments.component';
 import { HeaderComponent } from './header/header.component';
 import { AppointmentsComponent } from './appointments/appointments.component';
 import { AddappointmentsComponent } from './addappointments/addappointments.component';
+import { AdddepartmentsComponent } from './adddepartments/adddepartments.component';
+import { EditdepartmentComponent } from './editdepartment/editdepartment.component';
+import { MyprofileComponent } from './myprofile/myprofile.component';
+import { EditprofileComponent } from './editprofile/editprofile.component';
 
 
 @NgModule({
-  declarations: [AdminloginComponent, DashboardComponent, SidebarComponent, DepartmentsComponent, HeaderComponent, AppointmentsComponent, AddappointmentsComponent],
+  declarations: [AdminloginComponent, DashboardComponent, SidebarComponent, DepartmentsComponent, HeaderComponent, AppointmentsComponent, AddappointmentsComponent, AdddepartmentsComponent, EditdepartmentComponent, MyprofileComponent, EditprofileComponent],
   imports: [
     CommonModule, AdminloginRoutingModule, FormsModule, ReactiveFormsModule, ModalModule.forRoot(),
   ]
