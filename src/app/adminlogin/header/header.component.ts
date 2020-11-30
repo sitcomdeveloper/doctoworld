@@ -20,14 +20,15 @@ export class HeaderComponent implements OnInit {
     body.appendChild(script);
   }
   ngOnInit(): void {
-    // this.loadScript("assets/theme/js/addappointments.js");
-    this.loadScript("assets/theme/js/jquery-3.2.1.min.js");
-    this.loadScript("assets/theme/js/popper.min.js");
-    this.loadScript("assets/theme/js/bootstrap.min.js");
-    this.loadScript("assets/theme/js/jquery.slimscroll.js");
-    this.loadScript("assets/theme/js/Chart.bundle.js");
-    this.loadScript("assets/theme/js/chart.js");
-    this.loadScript("assets/theme/js/app.js");
+    // this.loadScript("assets/theme/js/jquery-3.2.1.min.js");
+    // this.loadScript("assets/theme/js/popper.min.js");
+    // this.loadScript("assets/theme/js/bootstrap.min.js");
+    // this.loadScript("assets/theme/js/jquery.slimscroll.js");
+    // this.loadScript("assets/theme/js/Chart.bundle.js");
+    // this.loadScript("assets/theme/js/chart.js");
+    // this.loadScript("assets/theme/js/app.js");
+
+        // this.loadScript("assets/theme/js/addappointments.js");
     // this.loadScript("assets/theme/js/moment.min.js");
     // this.loadScript("assets/theme/js/bootstrap-datetimepicker.min.js");
     // this.loadScript("assets/theme/js/dataTables.bootstrap4.min.js");
@@ -40,10 +41,47 @@ export class HeaderComponent implements OnInit {
   logout() {
     this.router.navigateByUrl("adminlogin");
   }
+  // profile
   profileSection() {
     this.router.navigateByUrl("adminlogin/profile");
+    // this.loadScript("assets/theme/js/jquery-3.2.1.min.js");
+    // this.loadScript("assets/theme/js/popper.min.js");
+    // this.loadScript("assets/theme/js/bootstrap.min.js");
+    // this.loadScript("assets/theme/js/jquery.slimscroll.js");
+    // this.loadScript("assets/theme/js/app.js");
   }
+  // update profile
   editProfile() {
     this.router.navigateByUrl("adminlogin/updateprofile");
+    // this.loadScript("assets/theme/js/jquery-3.2.1.min.js");
+    // this.loadScript("assets/theme/js/popper.min.js");
+    // this.loadScript("assets/theme/js/bootstrap.min.js");
+    // this.loadScript("assets/theme/js/jquery.slimscroll.js");
+    // this.loadScript("assets/theme/js/select2.min.js");
+    // this.loadScript("assets/theme/js/moment.min.js");
+    // this.loadScript("assets/theme/js/bootstrap-datetimepicker.min.js");
+    // this.loadScript("assets/theme/js/app.js");
+  }
+  // click on logo
+  movetoDashboard() {
+    this.router.navigateByUrl("adminlogin/dashboard")
+    this.loadScript("assets/theme/js/jquery-3.2.1.min.js");
+    this.loadScript("assets/theme/js/popper.min.js");
+    this.loadScript("assets/theme/js/bootstrap.min.js");
+    this.loadScript("assets/theme/js/jquery.slimscroll.js");
+    this.loadScript("assets/theme/js/select2.min.js");
+    this.loadScript("assets/theme/js/moment.min.js");
+    this.loadScript("assets/theme/js/bootstrap-datetimepicker.min.js");
+    this.loadScript("assets/theme/js/app.js");
+  }
+  // settings
+  settings() {
+    this.router.navigateByUrl("adminlogin/settings");
+    this.loadScript("assets/theme/js/jquery-3.2.1.min.js");
+    this.loadScript("assets/theme/js/popper.min.js");
+    this.loadScript("assets/theme/js/bootstrap.min.js");
+    this.loadScript("assets/theme/js/jquery.slimscroll.js");
+    this.loadScript("assets/theme/js/select2.min.js");
+    this.loadScript("assets/theme/js/app.js");
   }
 }

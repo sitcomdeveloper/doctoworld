@@ -36,18 +36,30 @@ export class DepartmentsComponent implements OnInit {
     // this.loadScript("assets/theme/js/select2.min.js");
     // this.loadScript("assets/theme/js/tagsinput.js");
 
+    // this.loadScript("assets/theme/js/jquery-3.2.1.min.js");
+    // this.loadScript("assets/theme/js/popper.min.js");
+    // this.loadScript("assets/theme/js/bootstrap.min.js");
+    // this.loadScript("assets/theme/js/jquery.slimscroll.js");
+    // this.loadScript("assets/theme/js/Chart.bundle.js");
+    // this.loadScript("assets/theme/js/chart.js");
+    // this.loadScript("assets/theme/js/app.js");
+  }
+  addDepartments() {
+    this.router.navigateByUrl("adminlogin/adddepartments")
     this.loadScript("assets/theme/js/jquery-3.2.1.min.js");
     this.loadScript("assets/theme/js/popper.min.js");
     this.loadScript("assets/theme/js/bootstrap.min.js");
     this.loadScript("assets/theme/js/jquery.slimscroll.js");
-    this.loadScript("assets/theme/js/Chart.bundle.js");
-    this.loadScript("assets/theme/js/chart.js");
+    this.loadScript("assets/theme/js/select2.min.js");
     this.loadScript("assets/theme/js/app.js");
-  }
-  addDepartments() {
-    this.router.navigateByUrl("adminlogin/adddepartments")
   }
   editdepartments() {
     this.router.navigateByUrl("adminlogin/editdepartments");
+    this.loadScript("assets/theme/js/jquery-3.2.1.min.js");
+    this.loadScript("assets/theme/js/popper.min.js");
+    this.loadScript("assets/theme/js/bootstrap.min.js");
+    this.loadScript("assets/theme/js/jquery.slimscroll.js");
+    this.loadScript("assets/theme/js/select2.min.js");
+    this.loadScript("assets/theme/js/app.js");
   }
 }

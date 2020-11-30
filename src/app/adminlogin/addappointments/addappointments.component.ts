@@ -19,7 +19,27 @@ export class AddappointmentsComponent implements OnInit {
     body.appendChild(script);
   }
   ngOnInit(): void {
-    // this.loadScript("assets/theme/js/addappointments.js");
+
+    // this.loadScript("assets/theme/js/jquery-3.2.1.min.js");
+    // this.loadScript("assets/theme/js/popper.min.js");
+    // this.loadScript("assets/theme/js/bootstrap.min.js");
+    // this.loadScript("assets/theme/js/jquery.slimscroll.js");
+    // this.loadScript("assets/theme/js/select2.min.js");
+    // this.loadScript("assets/theme/js/moment.min.js");
+    // this.loadScript("assets/theme/js/bootstrap-datetimepicker.min.js");
+    // this.loadScript("assets/theme/js/app.js");
+
+      // this.loadScript("assets/theme/js/addappointments.js");
+    // this.loadScript("assets/theme/js/Chart.bundle.js");
+    // this.loadScript("assets/theme/js/chart.js");
+    // this.loadScript("assets/theme/js/dataTables.bootstrap4.min.js");
+    // this.loadScript("assets/theme/js/jquery.dataTables.min.js");
+    // this.loadScript("assets/theme/js/fullcalendar.min.js");
+    // this.loadScript("assets/theme/js/jquery.fullcalendar.js");
+    // this.loadScript("assets/theme/js/tagsinput.js");
+  }
+  movetoAppointmentpg() {
+    this.router.navigateByUrl("adminlogin/appointments");
     this.loadScript("assets/theme/js/jquery-3.2.1.min.js");
     this.loadScript("assets/theme/js/popper.min.js");
     this.loadScript("assets/theme/js/bootstrap.min.js");
@@ -28,31 +48,5 @@ export class AddappointmentsComponent implements OnInit {
     this.loadScript("assets/theme/js/moment.min.js");
     this.loadScript("assets/theme/js/bootstrap-datetimepicker.min.js");
     this.loadScript("assets/theme/js/app.js");
-    // this.loadScript("assets/theme/js/Chart.bundle.js");
-    // this.loadScript("assets/theme/js/chart.js");
-    // this.loadScript("assets/theme/js/dataTables.bootstrap4.min.js");
-    // this.loadScript("assets/theme/js/jquery.dataTables.min.js");
-    // this.loadScript("assets/theme/js/fullcalendar.min.js");
-    // this.loadScript("assets/theme/js/jquery.fullcalendar.js");
-    this.loadScript("assets/theme/js/tagsinput.js");
-  }
-  movetoAppointmentpg() {
-    this.router.navigateByUrl("adminlogin/appointments");
   }
 }
-// <script src="assets/theme/js/addappointments.js"></script>
-//     <script src="assets/theme/js/app.js"></script>
-//     <script src="assets/theme/js/bootstrap.min"></script>
-//     <script src="assets/theme/js/jquery-3.2.1.min.js"></script>
-//     <script src="assets/theme/js/moment.min.js"></script>
-//     <script src="assets/theme/js/bootstrap-datetimepicker.min.js"></script>
-//     <script src="assets/theme/js/Chart.bundle.js"></script>
-//     <script src="assets/theme/js/chart.js"></script>
-//     <script src="assets/theme/js/dataTables.bootstrap4.min.js"></script>
-//     <script src="assets/theme/js/jquery.dataTables.min.js"></script>
-//     <script src="assets/theme/js/fullcalendar.min.js"></script>
-//     <script src="assets/theme/js/jquery.fullcalendar.js"></script>
-//     <script src="assets/theme/js/jquery.slimscroll.js"></script>
-//     <script src="assets/theme/js/popper.min.js"></script>
-//     <script src="assets/theme/js/select2.min.js"></script>
-//     <script src="assets/theme/js/tagsinput.js"></script>

@@ -1,6 +1,6 @@
  <div class="header">
 <div class="header-left">
-  <a href="index-2.html" class="logo">
+  <a routerLink="adminlogin" (click)="movetoDashboard()" class="logo">
     <img src="assets/doctoworldlogo.jpeg" width="35" height="35" alt="DoctoWorld"> <span>DoctoWorld</span>
   </a>
 </div>
@@ -93,7 +93,7 @@
     <div class="dropdown-menu">
       <a class="dropdown-item" routerLink="adminlogin" (click)="profileSection()">My Profile</a>
       <a class="dropdown-item" routerLink="adminlogin" (click)="editProfile()">Edit Profile</a>
-      <a class="dropdown-item" href="settings.html">Settings</a>
+      <a class="dropdown-item" routerLink="adminlogin" (click)="settings()">Settings</a>
       <a class="dropdown-item" (click)="logout()">Logout</a>
     </div>
           </li>

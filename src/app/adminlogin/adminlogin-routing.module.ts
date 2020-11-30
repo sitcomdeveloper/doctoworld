@@ -9,6 +9,8 @@ import { DepartmentsComponent } from './departments/departments.component';
 import { EditdepartmentComponent } from './editdepartment/editdepartment.component';
 import { EditprofileComponent } from './editprofile/editprofile.component';
 import { MyprofileComponent } from './myprofile/myprofile.component';
+import { PatientsComponent } from './patients/patients.component';
+import { SettingsComponent } from './settings/settings.component';
 
 const routes: Routes = [
   {path: '', component: AdminloginComponent},
@@ -19,7 +21,9 @@ const routes: Routes = [
   {path: 'appointments', component: AppointmentsComponent},
   {path: 'addappointments', component: AddappointmentsComponent},
   {path: 'profile', component: MyprofileComponent},
-  {path: 'updateprofile', component: EditprofileComponent}
+  {path: 'updateprofile', component: EditprofileComponent},
+  {path: 'settings', component: SettingsComponent},
+  {path: 'patients', component: PatientsComponent}
 ]
 
 @NgModule({

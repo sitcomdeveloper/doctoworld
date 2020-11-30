@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-editprofile',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EditprofileComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   loadScript(url: string) {
     const body = <HTMLDivElement>document.body;
@@ -28,4 +29,21 @@ export class EditprofileComponent implements OnInit {
     this.loadScript("assets/theme/js/bootstrap-datetimepicker.min.js");
     this.loadScript("assets/theme/js/app.js");
   }
+  savetheDetails() {
+    this.router.navigateByUrl("adminlogin/profile");
+    this.loadScript("assets/theme/js/jquery-3.2.1.min.js");
+    this.loadScript("assets/theme/js/popper.min.js");
+    this.loadScript("assets/theme/js/bootstrap.min.js");
+    this.loadScript("assets/theme/js/jquery.slimscroll.js");
+    this.loadScript("assets/theme/js/Chart.bundle.js");
+    this.loadScript("assets/theme/js/chart.js");
+    this.loadScript("assets/theme/js/app.js");
+  }
 }
+// this.loadScript("assets/theme/js/jquery-3.2.1.min.js");
+    // this.loadScript("assets/theme/js/popper.min.js");
+    // this.loadScript("assets/theme/js/bootstrap.min.js");
+    // this.loadScript("assets/theme/js/jquery.slimscroll.js");
+    // this.loadScript("assets/theme/js/Chart.bundle.js");
+    // this.loadScript("assets/theme/js/chart.js");
+    // this.loadScript("assets/theme/js/app.js");

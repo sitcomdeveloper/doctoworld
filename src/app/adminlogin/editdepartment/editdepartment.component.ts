@@ -20,14 +20,21 @@ export class EditdepartmentComponent implements OnInit {
     body.appendChild(script);
   }
   ngOnInit(): void {
+    // this.loadScript("assets/theme/js/jquery-3.2.1.min.js");
+    // this.loadScript("assets/theme/js/popper.min.js");
+    // this.loadScript("assets/theme/js/bootstrap.min.js");
+    // this.loadScript("assets/theme/js/jquery.slimscroll.js");
+    // this.loadScript("assets/theme/js/select2.min.js");
+    // this.loadScript("assets/theme/js/app.js");
+  }
+  alldepartments() {
+    this.router.navigateByUrl("adminlogin/departments");
     this.loadScript("assets/theme/js/jquery-3.2.1.min.js");
     this.loadScript("assets/theme/js/popper.min.js");
     this.loadScript("assets/theme/js/bootstrap.min.js");
     this.loadScript("assets/theme/js/jquery.slimscroll.js");
-    this.loadScript("assets/theme/js/select2.min.js");
+    this.loadScript("assets/theme/js/Chart.bundle.js");
+    this.loadScript("assets/theme/js/chart.js");
     this.loadScript("assets/theme/js/app.js");
-  }
-  alldepartments() {
-    this.router.navigateByUrl("adminlogin/departments");
   }
 }

@@ -14,10 +14,12 @@ import { AdddepartmentsComponent } from './adddepartments/adddepartments.compone
 import { EditdepartmentComponent } from './editdepartment/editdepartment.component';
 import { MyprofileComponent } from './myprofile/myprofile.component';
 import { EditprofileComponent } from './editprofile/editprofile.component';
+import { SettingsComponent } from './settings/settings.component';
+import { PatientsComponent } from './patients/patients.component';
 
 
 @NgModule({
-  declarations: [AdminloginComponent, DashboardComponent, SidebarComponent, DepartmentsComponent, HeaderComponent, AppointmentsComponent, AddappointmentsComponent, AdddepartmentsComponent, EditdepartmentComponent, MyprofileComponent, EditprofileComponent],
+  declarations: [AdminloginComponent, DashboardComponent, SidebarComponent, DepartmentsComponent, HeaderComponent, AppointmentsComponent, AddappointmentsComponent, AdddepartmentsComponent, EditdepartmentComponent, MyprofileComponent, EditprofileComponent, SettingsComponent, PatientsComponent],
   imports: [
     CommonModule, AdminloginRoutingModule, FormsModule, ReactiveFormsModule, ModalModule.forRoot(),
   ]
