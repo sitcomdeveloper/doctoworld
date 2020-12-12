@@ -18,15 +18,15 @@
 
                   <div class="login-form-content">
                       <!-- <h2>Where to?</h2> -->
-                      <form action="#" class="signin-form" method="post">
+                      <form  [formGroup]="adminLoginForm" class="signin-form">
           <div class="one-frm">
 
             <label>Doctor Id</label>
-            <input type="text" name="Name"  placeholder="" required="">
+            <input type="text" name="Name"  placeholder="" required="" formControlName="doctorid">
           </div>
           <div class="one-frm">
             <label>Password</label>
-            <input type="password" name="Password"  placeholder="" required="">
+            <input type="password" name="Password"  placeholder="" required="" formControlName="passwrd">
           </div>
                           <label class="check-remaind">
                               <input type="checkbox">

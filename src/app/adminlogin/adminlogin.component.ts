@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
+import { ApiService } from '../api.service';
 
 @Component({
   selector: 'app-adminlogin',
@@ -7,8 +9,9 @@ import { Router } from '@angular/router';
   styleUrls: ['./adminlogin.component.css']
 })
 export class AdminloginComponent implements OnInit {
-
-  constructor(private router: Router) { }
+adminLoginForm: FormGroup
+  loginuserMessage: any;
+  constructor(private router: Router, private apiService: ApiService, private fb: FormBuilder) { }
 
 // loadScript(url: string) {
 //     const body = <HTMLDivElement>document.body;
@@ -20,6 +23,10 @@ export class AdminloginComponent implements OnInit {
 //     body.appendChild(script);
 //   }
   ngOnInit(): void {
+    this.adminLoginForm = this.fb.group({
+      doctorid: [''],
+      passwrd: ['']
+    })
 
     // this.loadScript("assets/theme/js/jquery-3.2.1.min.js");
     // this.loadScript("assets/theme/js/bootstrap.min.js");
@@ -46,5 +53,16 @@ export class AdminloginComponent implements OnInit {
   }
   movetodashboard() {
     this.router.navigateByUrl('adminlogin/dashboard');
+  //   const adminlgn = {
+  //     doctorid: this.adminLoginForm.value.doctorId,
+  //     passwrd: this.adminLoginForm.value.password,
+  //   }
+  //   this.apiService.adminLogin(adminlgn).subscribe(loginRes => {
+  //     this.loginuserMessage = loginRes;
+  //     console.log('loginuserMessage', loginRes);
+  //     if(this.loginuserMessage) {
+  //       this.router.navigateByUrl('adminlogin/dashboard');
+  //     }
+  //   })
   }
 }
