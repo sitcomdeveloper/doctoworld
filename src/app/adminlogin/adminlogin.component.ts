@@ -11,6 +11,7 @@ import { ApiService } from '../api.service';
 export class AdminloginComponent implements OnInit {
 adminLoginForm: FormGroup
   loginuserMessage: any;
+  getLoginDetails: any;
   constructor(private router: Router, private apiService: ApiService, private fb: FormBuilder) { }
 
 // loadScript(url: string) {
@@ -52,17 +53,19 @@ adminLoginForm: FormGroup
 
   }
   movetodashboard() {
-    this.router.navigateByUrl('adminlogin/dashboard');
-  //   const adminlgn = {
-  //     doctorid: this.adminLoginForm.value.doctorId,
-  //     passwrd: this.adminLoginForm.value.password,
-  //   }
-  //   this.apiService.adminLogin(adminlgn).subscribe(loginRes => {
-  //     this.loginuserMessage = loginRes;
-  //     console.log('loginuserMessage', loginRes);
-  //     if(this.loginuserMessage) {
-  //       this.router.navigateByUrl('adminlogin/dashboard');
-  //     }
-  //   })
+    // this.router.navigateByUrl('adminlogin/dashboard');
+    const adminlgn = {
+      doctorId: this.adminLoginForm.value.doctorid,
+      password: this.adminLoginForm.value.passwrd,
+    }
+    this.apiService.adminLogin(adminlgn).subscribe(loginRes => {
+      this.loginuserMessage = loginRes;
+      this.getLoginDetails = this.loginuserMessage.adminData
+      window.sessionStorage.setItem('loginDetails', JSON.stringify(this.getLoginDetails));
+      console.log('loginuserMessage', loginRes);
+      if(this.getLoginDetails) {
+        this.router.navigateByUrl('adminlogin/dashboard');
+      }
+    })
   }
 }
