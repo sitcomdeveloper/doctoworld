@@ -2,3 +2,9 @@
 img.img-responsive {
   padding-bottom: 118px;
 }
+.msg {
+  color: green;
+  margin-left: 121px;
+  font-weight: 500;
+  font-size: 21px;
+}

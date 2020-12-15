@@ -64,8 +64,16 @@ adminLoginForm: FormGroup
       window.sessionStorage.setItem('loginDetails', JSON.stringify(this.getLoginDetails));
       console.log('loginuserMessage', loginRes);
       if(this.getLoginDetails) {
-        this.router.navigateByUrl('adminlogin/dashboard');
+        setTimeout(() => {
+          this.router.navigateByUrl('adminlogin/dashboard');
+        },
+          2000);
+
       }
     })
   }
 }
+// setTimeout(() => {
+//   this.bsmodal.hide();
+// },
+//   1000);
