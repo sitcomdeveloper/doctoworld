@@ -7,6 +7,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./myprofile.component.css']
 })
 export class MyprofileComponent implements OnInit {
+  parsedloginDetails: any;
 
   constructor(private router: Router) { }
 
@@ -20,6 +21,8 @@ export class MyprofileComponent implements OnInit {
     body.appendChild(script);
   }
   ngOnInit(): void {
+    this.parsedloginDetails = JSON.parse(window.sessionStorage.getItem('loginDetails'));
+
     this.loadScript("assets/theme/js/jquery-3.2.1.min.js");
     this.loadScript("assets/theme/js/popper.min.js");
     this.loadScript("assets/theme/js/bootstrap.min.js");

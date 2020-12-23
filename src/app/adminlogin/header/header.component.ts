@@ -44,6 +44,9 @@ export class HeaderComponent implements OnInit {
   logout() {
     this.router.navigateByUrl("adminlogin");
   }
+  homePage() {
+    this.router.navigateByUrl("adminlogin/dashboard");
+  }
   // profile
   profileSection() {
     this.router.navigateByUrl("adminlogin/profile");
