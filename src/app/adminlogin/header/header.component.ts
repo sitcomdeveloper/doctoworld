@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ApiService } from 'src/app/api.service';
 
 @Component({
   selector: 'app-header',
@@ -8,8 +9,9 @@ import { Router } from '@angular/router';
 })
 export class HeaderComponent implements OnInit {
   parsedloginDetails: any;
+  logoutres: any;
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private apiService: ApiService) { }
 
   loadScript(url: string) {
     const body = <HTMLDivElement>document.body;
@@ -31,7 +33,7 @@ export class HeaderComponent implements OnInit {
     // this.loadScript("assets/theme/js/chart.js");
     // this.loadScript("assets/theme/js/app.js");
 
-        // this.loadScript("assets/theme/js/addappointments.js");
+    // this.loadScript("assets/theme/js/addappointments.js");
     // this.loadScript("assets/theme/js/moment.min.js");
     // this.loadScript("assets/theme/js/bootstrap-datetimepicker.min.js");
     // this.loadScript("assets/theme/js/dataTables.bootstrap4.min.js");
@@ -42,7 +44,17 @@ export class HeaderComponent implements OnInit {
     // this.loadScript("assets/theme/js/tagsinput.js");
   }
   logout() {
-    this.router.navigateByUrl("adminlogin");
+    const admnlgot = {}
+    this.apiService.adminLogout(admnlgot).subscribe(adminlogoutRes => {
+      this.logoutres = adminlogoutRes;
+      console.log('logoutres', adminlogoutRes);
+      setTimeout(() => {
+        this.router.navigateByUrl('adminlogin');
+      },
+        100);
+        // window.sessionStorage.clear();
+    })
+window.sessionStorage.clear();
   }
   homePage() {
     this.router.navigateByUrl("adminlogin/dashboard");

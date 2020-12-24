@@ -12,6 +12,7 @@ export class AdminloginComponent implements OnInit {
 adminLoginForm: FormGroup
   loginuserMessage: any;
   getLoginDetails: any;
+  loginToken: any;
   constructor(private router: Router, private apiService: ApiService, private fb: FormBuilder) { }
 
 // loadScript(url: string) {
@@ -60,9 +61,12 @@ adminLoginForm: FormGroup
     }
     this.apiService.adminLogin(adminlgn).subscribe(loginRes => {
       this.loginuserMessage = loginRes;
-      this.getLoginDetails = this.loginuserMessage.adminData
+      this.getLoginDetails = this.loginuserMessage.adminData;
+      this.loginToken = this.loginuserMessage.token;
       window.sessionStorage.setItem('loginDetails', JSON.stringify(this.getLoginDetails));
+      window.sessionStorage.setItem('tokenn', JSON.stringify(this.loginToken));
       console.log('loginuserMessage', loginRes);
+      console.log('RealToken', JSON.stringify(this.loginToken));
       if(this.getLoginDetails) {
         setTimeout(() => {
           this.router.navigateByUrl('adminlogin/dashboard');
