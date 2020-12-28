@@ -20,6 +20,30 @@ export class ApiService {
       'Content-Type': 'application/json',
       'Authorization': 'Bearer ' + JSON.parse(sessionStorage.getItem('tokenn'))
      });
-    return this.http.post<any>(API_URL + 'admin/adminlogout',admnlgot, {headers: reqHeader,});
+    return this.http.post<any>(API_URL + 'admin/adminlogout',admnlgot, {headers: reqHeader});
   }
+  // edit admin profile
+  editAdminProfile(admnprofle: any): Observable<any> {
+    var reqHeader = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': 'Bearer ' + JSON.parse(sessionStorage.getItem('tokenn'))
+    })
+  return this.http.post<any>(API_URL + 'admin/editadminprofile', admnprofle, {headers: reqHeader});
+}
+// get admin profile
+getAdminProfile(): Observable<any> {
+  var reqHeader = new HttpHeaders({
+    'Content-Type': 'application/json',
+    'Authorization': 'Bearer ' + JSON.parse(sessionStorage.getItem('tokenn'))
+  })
+  return this.http.get<any>(API_URL + 'admin/getadminprofile', {headers: reqHeader});
+}
+// upload image
+uploadImage(upldimg: any): Observable<any> {
+  var reqHeader = new HttpHeaders({
+    'Content-Type': 'application/json',
+    'Authorization': 'Bearer ' + JSON.parse(sessionStorage.getItem('tokenn'))
+  })
+  return this.http.post<any>(API_URL + 'admin/adminprofileimage', upldimg, {headers: reqHeader});
+}
 }

@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ApiService } from 'src/app/api.service';
+import { environment } from 'src/environments/environment';
 
+const API_URL = environment.API_URL;
 @Component({
   selector: 'app-myprofile',
   templateUrl: './myprofile.component.html',
@@ -8,8 +11,11 @@ import { Router } from '@angular/router';
 })
 export class MyprofileComponent implements OnInit {
   parsedloginDetails: any;
+  admindtlsRes: any;
+  finaladminData: any;
+  url: string;
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private apiService: ApiService) { }
 
   loadScript(url: string) {
     const body = <HTMLDivElement>document.body;
@@ -28,6 +34,18 @@ export class MyprofileComponent implements OnInit {
     this.loadScript("assets/theme/js/bootstrap.min.js");
     this.loadScript("assets/theme/js/jquery.slimscroll.js");
     this.loadScript("assets/theme/js/app.js");
+
+    this.fetchAdminDetails();
+
+    this.url = API_URL
+  }
+  // fetch the details of admin
+  fetchAdminDetails() {
+    this.apiService.getAdminProfile().subscribe(fetchAdminDtlsRes => {
+      this.admindtlsRes = fetchAdminDtlsRes;
+      this.finaladminData = this.admindtlsRes.adminData;
+      console.log('admindtlsRes', this.finaladminData);
+    })
   }
   movetoUpdateProfile() {
 this.router.navigateByUrl("adminlogin/updateprofile");

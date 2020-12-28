@@ -10,6 +10,8 @@ import { ApiService } from 'src/app/api.service';
 export class HeaderComponent implements OnInit {
   parsedloginDetails: any;
   logoutres: any;
+  admindtlsRes: any;
+  finaladminData: any;
 
   constructor(private router: Router, private apiService: ApiService) { }
 
@@ -42,6 +44,14 @@ export class HeaderComponent implements OnInit {
     // this.loadScript("assets/theme/js/jquery.fullcalendar.js");
     // this.loadScript("assets/theme/js/select2.min.js");
     // this.loadScript("assets/theme/js/tagsinput.js");
+    this.fetchAdminDetails();
+  }
+  fetchAdminDetails() {
+    this.apiService.getAdminProfile().subscribe(fetchAdminDtlsRes => {
+      this.admindtlsRes = fetchAdminDtlsRes;
+      this.finaladminData = this.admindtlsRes.adminData;
+      console.log('admindtlsRes', this.finaladminData);
+    })
   }
   logout() {
     const admnlgot = {}

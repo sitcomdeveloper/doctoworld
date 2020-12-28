@@ -14,46 +14,50 @@
                   <h4 class="page-title">Edit Profile</h4>
               </div>
           </div>
-          <form>
+          <form [formGroup]="adminEditDetailsForm">
               <div class="card-box">
                   <h3 class="card-title">Basic Informations</h3>
                   <div class="row">
                       <div class="col-md-12">
                           <div class="profile-img-wrap">
-                              <img class="inline-block" src="assets/theme/img/user.jpg" alt="user">
+                              <img class="inline-block" src="assets/theme/img/user.jpg" formControlName="img" alt="user">
+
                               <div class="fileupload btn">
                                   <span class="btn-text">edit</span>
                                   <input class="upload" type="file">
                               </div>
+                              <!-- <button (click)="uploadtheImage()">Upload</button> -->
+
                           </div>
                           <div class="profile-basic">
                               <div class="row">
                                   <div class="col-md-6">
                                       <div class="form-group form-focus">
                                           <label class="focus-label">First Name</label>
-                                          <input type="text" class="form-control floating" value="{{this.parsedloginDetails?.name}}">
+                                          <input type="text" class="form-control floating" formControlName="firstname" value="">
                                       </div>
                                   </div>
                                   <div class="col-md-6">
                                       <div class="form-group form-focus">
                                           <label class="focus-label">Last Name</label>
-                                          <input type="text" class="form-control floating" value="Doe">
+                                          <input type="text" class="form-control floating" formControlName="lastname" value="{{this.finaladminData?.lastName}}">
                                       </div>
                                   </div>
                                   <div class="col-md-6">
                                       <div class="form-group form-focus">
                                           <label class="focus-label">Birth Date</label>
                                           <div class="cal-icon">
-                                              <input class="form-control floating datetimepicker" type="text" value="{{this.parsedloginDetails?.birthday}}">
+                                              <input class="form-control floating datetimepicker" formControlName="dob" type="text" value="{{this.finaladminData?.birthday}}">
                                           </div>
                                       </div>
                                   </div>
                                   <div class="col-md-6">
                                       <div class="form-group form-focus select-focus">
-                                          <label class="focus-label">Gendar</label>
-                                          <select class="select form-control floating">
-                                              <option value="male selected">{{this.parsedloginDetails?.gender}}</option>
-                                              <!-- <option value="female">Female</option> -->
+                                          <label class="focus-label">Gender</label>
+                                          <select class="select form-control floating" formControlName="gende">
+                                              <!-- <option value="male selected">{{this.parsedloginDetails?.gender}}</option> -->
+                                              <option value="Male">Male</option>
+                                              <option value="Female">Female</option>
                                           </select>
                                       </div>
                                   </div>
@@ -65,34 +69,40 @@
               <div class="card-box">
                   <h3 class="card-title">Contact Informations</h3>
                   <div class="row">
-                      <div class="col-md-12">
+                      <div class="col-md-6">
                           <div class="form-group form-focus">
                               <label class="focus-label">Address</label>
-                              <input type="text" class="form-control floating" value="{{this.parsedloginDetails?.address}}">
+                              <input type="text" class="form-control floating" formControlName="address" value="{{this.finaladminData?.address}}">
                           </div>
                       </div>
                       <div class="col-md-6">
+                        <div class="form-group form-focus">
+                            <label class="focus-label">Email</label>
+                            <input type="text" class="form-control floating" formControlName="email" value="{{this.finaladminData?.email}}">
+                        </div>
+                    </div>
+                      <div class="col-md-6">
                           <div class="form-group form-focus">
                               <label class="focus-label">State</label>
-                              <input type="text" class="form-control floating" value="New York">
+                              <input type="text" class="form-control floating" formControlName="state" value="{{this.finaladminData?.state}}">
                           </div>
                       </div>
                       <div class="col-md-6">
                           <div class="form-group form-focus">
                               <label class="focus-label">Country</label>
-                              <input type="text" class="form-control floating" value="United States">
+                              <input type="text" class="form-control floating" formControlName="country" value="{{this.finaladminData?.country}}">
                           </div>
                       </div>
                       <div class="col-md-6">
                           <div class="form-group form-focus">
                               <label class="focus-label">Pin Code</label>
-                              <input type="text" class="form-control floating" value="10523">
+                              <input type="text" class="form-control floating" formControlName="pincode" value="{{this.finaladminData?.pincode}}">
                           </div>
                       </div>
                       <div class="col-md-6">
                           <div class="form-group form-focus">
                               <label class="focus-label">Phone Number</label>
-                              <input type="text" class="form-control floating" value="{{this.parsedloginDetails?.mobile}}">
+                              <input type="text" class="form-control floating" formControlName="phonenumber" value="{{this.finaladminData?.mobile}}">
                           </div>
                       </div>
                   </div>
@@ -188,6 +198,9 @@
                   </div>
               </div> -->
               <div class="text-center m-t-20">
+                <div class="messge">{{this.getAdminProfileRes?.message}}</div>
+                <button class="btn btn-primary submit-btn" type="button" (click)="uploadtheImage()">Upload</button>
+                <button class="btn btn-danger submit-btn" type="button" routerLink="adminlogin" (click)="backtoprofile()">Cancel</button>
                   <button class="btn btn-primary submit-btn" type="button" routerLink="adminlogin" (click)="savetheDetails()">Save</button>
               </div>
           </form>
