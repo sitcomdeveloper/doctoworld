@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ApiService } from 'src/app/api.service';
-
+import * as $ from 'jquery'
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -13,7 +13,8 @@ export class HeaderComponent implements OnInit {
   admindtlsRes: any;
   finaladminData: any;
 
-  constructor(private router: Router, private apiService: ApiService) { }
+  constructor(private router: Router, private apiService: ApiService) {
+   }
 
   loadScript(url: string) {
     const body = <HTMLDivElement>document.body;
@@ -25,15 +26,11 @@ export class HeaderComponent implements OnInit {
     body.appendChild(script);
   }
   ngOnInit(): void {
+    this.recalljs();
     this.parsedloginDetails = JSON.parse(window.sessionStorage.getItem('loginDetails'));
     console.log('Login User', this.parsedloginDetails);
-    // this.loadScript("assets/theme/js/jquery-3.2.1.min.js");
-    // this.loadScript("assets/theme/js/popper.min.js");
-    // this.loadScript("assets/theme/js/bootstrap.min.js");
-    // this.loadScript("assets/theme/js/jquery.slimscroll.js");
-    // this.loadScript("assets/theme/js/Chart.bundle.js");
-    // this.loadScript("assets/theme/js/chart.js");
-    // this.loadScript("assets/theme/js/app.js");
+
+
 
     // this.loadScript("assets/theme/js/addappointments.js");
     // this.loadScript("assets/theme/js/moment.min.js");
@@ -45,6 +42,18 @@ export class HeaderComponent implements OnInit {
     // this.loadScript("assets/theme/js/select2.min.js");
     // this.loadScript("assets/theme/js/tagsinput.js");
     this.fetchAdminDetails();
+  }
+  recalljs() {
+    $(document).ready(function() {
+      this.loadScript("assets/theme/js/jquery-3.2.1.min.js");
+    this.loadScript("assets/theme/js/popper.min.js");
+    this.loadScript("assets/theme/js/bootstrap.min.js");
+    this.loadScript("assets/theme/js/jquery.slimscroll.js");
+    this.loadScript("assets/theme/js/Chart.bundle.js");
+    this.loadScript("assets/theme/js/chart.js");
+    this.loadScript("assets/theme/js/app.js");
+    alert("hi");
+    });
   }
   fetchAdminDetails() {
     this.apiService.getAdminProfile().subscribe(fetchAdminDtlsRes => {

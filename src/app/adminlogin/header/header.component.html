@@ -171,6 +171,23 @@
       <a class="dropdown-item" (click)="logout()">Logout</a>
     </div>
           </li>
+
+          <div class="dropdown show">
+            <a class="btn btn-success dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <span class="user-img">
+                <img class="rounded-circle" src="assets/theme/img/user.jpg" width="24" alt="Admin">
+                <span class="status online"></span>
+              </span>
+              {{this.finaladminData?.firstName}} {{this.finaladminData?.lastName}}
+            </a>
+
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+              <a class="dropdown-item" routerLink="adminlogin" (click)="profileSection()">My Profile</a>
+              <a class="dropdown-item" routerLink="adminlogin" (click)="editProfile()">Edit Profile</a>
+              <a class="dropdown-item" href="#">Something else here</a>
+            </div>
+          </div>
+
       </ul>
       <div class="dropdown mobile-user-menu float-right">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>

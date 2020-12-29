@@ -20,12 +20,13 @@
                   <div class="row">
                       <div class="col-md-12">
                           <div class="profile-img-wrap">
-                              <img class="inline-block" src="assets/theme/img/user.jpg" formControlName="img" alt="user">
+                              <img class="inline-block" src="assets/theme/img/user.jpg" alt="user">
 
                               <div class="fileupload btn">
                                   <span class="btn-text">edit</span>
-                                  <input class="upload" type="file">
+                                  <input class="upload" type="file" formControlName="img" multiple="multiple" accept="image/*" (change)="file_name_show($event)">
                               </div>
+                              <!-- (change)="file_name_show($event)" -->
                               <!-- <button (click)="uploadtheImage()">Upload</button> -->
 
                           </div>

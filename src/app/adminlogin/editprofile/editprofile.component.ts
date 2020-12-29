@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ApiService } from 'src/app/api.service';
+import * as $ from 'jquery'
 
 @Component({
   selector: 'app-editprofile',
@@ -15,6 +16,7 @@ export class EditprofileComponent implements OnInit {
   admindtlsRes: any;
   finaladminData: any;
   resuploadImage: any;
+  uploadedFile: File;
 
   constructor(private router: Router, private apiService: ApiService, private fb: FormBuilder) { }
 
@@ -104,12 +106,25 @@ export class EditprofileComponent implements OnInit {
       }
       })
     }
+    file_name_show(event) {
+      let fileList: FileList = event.target.files;
+      if (fileList.length > 0) {
+        this.uploadedFile = fileList[0];
+        let fileSize: number = fileList[0].size;
+      }
+        var file = $('#file-upload')[0].files[0].name;
+        var size = $('#file-upload')[0].files[0].size;
+        var size = size / 1024
+        $("#files_name").html('<hr><i class="fa fa-file" aria-hidden="true"></i>  ' + file + "    size : " + size.toFixed(2) + " KB" + '           <a href="javascript:void(0)"><i class="fa fa-times" aria-hidden="true" onclick="file_name_remove()"></i></a><hr>');
+      }
     // upload image
     uploadtheImage() {
-      const upldimg = {
-        profile: this.adminEditDetailsForm.value.img
-      }
-      this.apiService.uploadImage(upldimg).subscribe(upldimgRes => {
+      const formData: FormData = new FormData();
+    formData.append("profile", this.uploadedFile);
+      // const upldimg = {
+      //   profile: this.adminEditDetailsForm.value.img
+      // }
+      this.apiService.uploadImage(formData).subscribe(upldimgRes => {
         this.resuploadImage = upldimgRes;
         console.log('resuploadImage',upldimgRes);
       })

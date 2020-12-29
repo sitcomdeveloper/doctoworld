@@ -41,7 +41,7 @@ getAdminProfile(): Observable<any> {
 // upload image
 uploadImage(upldimg: any): Observable<any> {
   var reqHeader = new HttpHeaders({
-    'Content-Type': 'application/json',
+    'Content-Type': 'multipart/form-data',
     'Authorization': 'Bearer ' + JSON.parse(sessionStorage.getItem('tokenn'))
   })
   return this.http.post<any>(API_URL + 'admin/adminprofileimage', upldimg, {headers: reqHeader});
