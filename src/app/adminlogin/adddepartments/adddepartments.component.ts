@@ -52,7 +52,7 @@ export class AdddepartmentsComponent implements OnInit {
       status: this.departmentsForm.value.status,
     }
     this.apiService.addDepartments(adddprtmnts).subscribe(adddeprtmntsRes => {
-      this.getnewDepartments = adddeprtmntsRes.reverse;
+      this.getnewDepartments = adddeprtmntsRes;
       if (this.getnewDepartments) {
         setTimeout(() => {
           this.router.navigateByUrl("adminlogin/departments")
