@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
+import { ApiService } from 'src/app/api.service';
 
 @Component({
   selector: 'app-departments',
@@ -7,8 +9,10 @@ import { Router } from '@angular/router';
   styleUrls: ['./departments.component.css']
 })
 export class DepartmentsComponent implements OnInit {
+  fetchallDepartments: any;
+  objectfetchallDepartments: any;
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private apiService: ApiService, private fb: FormBuilder) { }
   loadScript(url: string) {
     const body = <HTMLDivElement>document.body;
     const script = document.createElement("script");
@@ -43,6 +47,7 @@ export class DepartmentsComponent implements OnInit {
     // this.loadScript("assets/theme/js/Chart.bundle.js");
     // this.loadScript("assets/theme/js/chart.js");
     // this.loadScript("assets/theme/js/app.js");
+    this.fetchdepartments();
   }
   addDepartments() {
     this.router.navigateByUrl("adminlogin/adddepartments")
@@ -61,5 +66,13 @@ export class DepartmentsComponent implements OnInit {
     this.loadScript("assets/theme/js/jquery.slimscroll.js");
     this.loadScript("assets/theme/js/select2.min.js");
     this.loadScript("assets/theme/js/app.js");
+  }
+  // get all departments
+  fetchdepartments() {
+    this.apiService.getDepartments().subscribe(ftchdepartmntsRes => {
+      this.fetchallDepartments = ftchdepartmntsRes;
+      this.objectfetchallDepartments = this.fetchallDepartments.departmentDeatil;
+      console.log('fetchallDepartments', this.objectfetchallDepartments);
+    })
   }
 }

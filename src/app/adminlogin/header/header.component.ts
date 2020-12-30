@@ -14,7 +14,11 @@ export class HeaderComponent implements OnInit {
   finaladminData: any;
 
   constructor(private router: Router, private apiService: ApiService) {
+    $(document).ready(function() {
+      this.loadScript("assets/theme/js/jquery-3.2.1.min.js");
+    });
    }
+
 
   loadScript(url: string) {
     const body = <HTMLDivElement>document.body;
@@ -25,6 +29,7 @@ export class HeaderComponent implements OnInit {
     script.defer = true;
     body.appendChild(script);
   }
+
   ngOnInit(): void {
     this.recalljs();
     this.parsedloginDetails = JSON.parse(window.sessionStorage.getItem('loginDetails'));

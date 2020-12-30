@@ -46,4 +46,21 @@ uploadImage(upldimg: any): Observable<any> {
   })
   return this.http.post<any>(API_URL + 'admin/adminprofileimage', upldimg, {headers: reqHeader});
 }
+// get all departments
+getDepartments(): Observable<any> {
+  var reqHeader = new HttpHeaders({
+    'Content-Type': 'application/json',
+    'Authorization': 'Bearer ' + JSON.parse(sessionStorage.getItem('tokenn'))
+  })
+  return this.http.get<any>(API_URL + 'admin/getalldepartment', {headers: reqHeader});
+}
+// add departments
+addDepartments(adddprtmnts: any): Observable<any> {
+  var reqHeader = new HttpHeaders({
+    'Content-Type': 'application/json',
+    'Authorization': 'Bearer ' + JSON.parse(sessionStorage.getItem('tokenn'))
+  })
+  return this.http.post<any>(API_URL + 'admin/adddepartment', adddprtmnts, {headers: reqHeader});
+}
+
 }

@@ -16,31 +16,45 @@
           </div>
           <div class="row">
               <div class="col-lg-8 offset-lg-2">
-                  <form>
+                  <form [formGroup] = "departmentsForm">
         <div class="form-group">
           <label>Department Name</label>
-          <input class="form-control" type="text">
+          <input class="form-control" type="text" formControlName="dname">
         </div>
                       <div class="form-group">
                           <label>Description</label>
-                          <textarea cols="30" rows="4" class="form-control"></textarea>
+                          <textarea cols="30" rows="4" class="form-control" formControlName="desc"></textarea>
                       </div>
                       <div class="form-group">
                           <label class="display-block">Department Status</label>
-          <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="status" id="product_active" value="option1" checked>
+          <!-- <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="status" value="option1" checked>
             <label class="form-check-label" for="product_active">
             Active
             </label>
-          </div>
+          </div> -->
           <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="status" id="product_inactive" value="option2">
+            <!-- <input class="form-check-input" type="radio" name="status" value="option2">
             <label class="form-check-label" for="product_inactive">
             Inactive
-            </label>
+            </label> -->
+
+            <div class="col-md-12">
+              <div class="form-group">
+                  <!-- <label>Doctor</label> -->
+                  <select class="select form-control" formControlName="status">
+                    <option>Select</option>
+                    <option value="Active">Active</option>
+                    <option value="Inactive">Inactive</option>
+                  </select>
+              </div>
+          </div>
+
           </div>
                       </div>
                       <div class="m-t-20 text-center">
+                        <div class="message">{{this.getnewDepartments?.message}}</div>
+                        <button class="btn btn-danger submit-btn" (click)="movetoDepartments()">Cancel </button>
                           <button class="btn btn-primary submit-btn" (click)="newDepartment()">Create Department</button>
                       </div>
                   </form>
