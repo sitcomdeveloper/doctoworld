@@ -71,7 +71,7 @@ export class DepartmentsComponent implements OnInit {
   fetchdepartments() {
     this.apiService.getDepartments().subscribe(ftchdepartmntsRes => {
       this.fetchallDepartments = ftchdepartmntsRes;
-      this.objectfetchallDepartments = this.fetchallDepartments.departmentDeatil;
+      this.objectfetchallDepartments = this.fetchallDepartments.departmentDeatil.reverse();
       console.log('fetchallDepartments', this.objectfetchallDepartments);
     })
   }

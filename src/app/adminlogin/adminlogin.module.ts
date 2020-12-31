@@ -16,10 +16,12 @@ import { MyprofileComponent } from './myprofile/myprofile.component';
 import { EditprofileComponent } from './editprofile/editprofile.component';
 import { SettingsComponent } from './settings/settings.component';
 import { PatientsComponent } from './patients/patients.component';
+import { ScheduleComponent } from './schedule/schedule.component';
+import { AddscheduleComponent } from './addschedule/addschedule.component';
 
 
 @NgModule({
-  declarations: [AdminloginComponent, DashboardComponent, SidebarComponent, DepartmentsComponent, HeaderComponent, AppointmentsComponent, AddappointmentsComponent, AdddepartmentsComponent, EditdepartmentComponent, MyprofileComponent, EditprofileComponent, SettingsComponent, PatientsComponent],
+  declarations: [AdminloginComponent, DashboardComponent, SidebarComponent, DepartmentsComponent, HeaderComponent, AppointmentsComponent, AddappointmentsComponent, AdddepartmentsComponent, EditdepartmentComponent, MyprofileComponent, EditprofileComponent, SettingsComponent, PatientsComponent, ScheduleComponent, AddscheduleComponent],
   imports: [
     CommonModule, AdminloginRoutingModule, FormsModule, ReactiveFormsModule, ModalModule.forRoot(),
   ]

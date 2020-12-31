@@ -88,4 +88,7 @@ export class SidebarComponent implements OnInit {
     this.loadScript("assets/theme/js/bootstrap-datetimepicker.min.js");
     this.loadScript("assets/theme/js/app.js");
   }
+  schedule() {
+    this.router.navigateByUrl("adminlogin/schedule");
+  }
 }
