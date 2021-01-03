@@ -27,20 +27,15 @@
                       </div>
                       <div class="form-group">
                           <label class="display-block">Department Status</label>
-          <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="status" id="product_active" value="option1" checked>
-            <label class="form-check-label" for="product_active">
-            Active
-            </label>
-          </div>
-          <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="status" id="product_inactive" value="option2">
-            <label class="form-check-label" for="product_inactive">
-            Inactive
-            </label>
-          </div>
+                          <select _ngcontent-qpo-c3="" class="form-control itemformcontrol"
+                          data-live-search="true">
+                          <option ngcontent-qpo-c3="">Select</option>
+                          <option ngcontent-qpo-c3="" value="Active">Active</option>
+                          <option ngcontent-qpo-c3="" value="Inactive">Inactive</option>
+                            </select>
                       </div>
                       <div class="m-t-20 text-center">
+                        <button class="btn btn-danger submit-btn" (click)="backtoalldepartments()">Cancel</button>
                           <button class="btn btn-primary submit-btn" (click)="alldepartments()">Save Department</button>
                       </div>
                   </form>

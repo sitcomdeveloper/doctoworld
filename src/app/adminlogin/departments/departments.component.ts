@@ -58,8 +58,9 @@ export class DepartmentsComponent implements OnInit {
     this.loadScript("assets/theme/js/select2.min.js");
     this.loadScript("assets/theme/js/app.js");
   }
-  editdepartments() {
-    this.router.navigateByUrl("adminlogin/editdepartments");
+  editdepartments(selectedid: any) {
+    console.log(selectedid);
+    this.router.navigate(['/adminlogin/editdepartments', selectedid]);
     this.loadScript("assets/theme/js/jquery-3.2.1.min.js");
     this.loadScript("assets/theme/js/popper.min.js");
     this.loadScript("assets/theme/js/bootstrap.min.js");

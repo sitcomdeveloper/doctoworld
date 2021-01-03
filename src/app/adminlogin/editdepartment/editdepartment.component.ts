@@ -37,4 +37,8 @@ export class EditdepartmentComponent implements OnInit {
     this.loadScript("assets/theme/js/chart.js");
     this.loadScript("assets/theme/js/app.js");
   }
+  // cancel
+  backtoalldepartments() {
+    this.router.navigateByUrl('adminlogin/departments');
+  }
 }

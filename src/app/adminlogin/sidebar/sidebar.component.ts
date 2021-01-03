@@ -91,4 +91,7 @@ export class SidebarComponent implements OnInit {
   schedule() {
     this.router.navigateByUrl("adminlogin/schedule");
   }
+  chngepwd() {
+    this.router.navigateByUrl("adminlogin/updatepassword");
+  }
 }

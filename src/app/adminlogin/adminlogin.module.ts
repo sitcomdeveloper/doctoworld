@@ -18,10 +18,11 @@ import { SettingsComponent } from './settings/settings.component';
 import { PatientsComponent } from './patients/patients.component';
 import { ScheduleComponent } from './schedule/schedule.component';
 import { AddscheduleComponent } from './addschedule/addschedule.component';
+import { ChangepasswordComponent } from './changepassword/changepassword.component';
 
 
 @NgModule({
-  declarations: [AdminloginComponent, DashboardComponent, SidebarComponent, DepartmentsComponent, HeaderComponent, AppointmentsComponent, AddappointmentsComponent, AdddepartmentsComponent, EditdepartmentComponent, MyprofileComponent, EditprofileComponent, SettingsComponent, PatientsComponent, ScheduleComponent, AddscheduleComponent],
+  declarations: [AdminloginComponent, DashboardComponent, SidebarComponent, DepartmentsComponent, HeaderComponent, AppointmentsComponent, AddappointmentsComponent, AdddepartmentsComponent, EditdepartmentComponent, MyprofileComponent, EditprofileComponent, SettingsComponent, PatientsComponent, ScheduleComponent, AddscheduleComponent, ChangepasswordComponent],
   imports: [
     CommonModule, AdminloginRoutingModule, FormsModule, ReactiveFormsModule, ModalModule.forRoot(),
   ]

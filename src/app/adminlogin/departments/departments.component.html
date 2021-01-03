@@ -35,7 +35,7 @@
                                   <td>{{departments?.name}}</td>
               <td><span class="custom-badge status-green">{{departments?.status}}</span></td>
                                   <td class="text-right">
-                                    <button type="button" class="btn btn-primary" routerLink="adminlogin" (click)="editdepartments()"><i class="fa fa-pencil m-r-5"></i>Edit</button>
+                                    <button type="button" class="btn btn-primary" routerLink="adminlogin" (click)="editdepartments(departments?.departmentId)"><i class="fa fa-pencil m-r-5"></i>Edit</button>
                                     <button type="button" class="btn btn-danger"><i class="fa fa-trash-o m-r-5"></i>Delete</button>
                                       <!-- <div class="dropdown dropdown-action">
                                           <a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>

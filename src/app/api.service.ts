@@ -62,5 +62,29 @@ addDepartments(adddprtmnts: any): Observable<any> {
   })
   return this.http.post<any>(API_URL + 'admin/adddepartment', adddprtmnts, {headers: reqHeader});
 }
+// getdepartment by id
+// getDepartmentbyId(): Observable<any> {
+//   var reqHeader = new HttpHeaders({
+//     'Content-Type': 'application/json',
+//     'Authorization': 'Bearer ' + JSON.parse(sessionStorage.getItem('tokenn'))
+//   })
+//   return this.http.post<any>(API_URL + '', {headers: reqHeader}),
+// }
+// edit departments
+editDepartments(edtdprtmnts: any): Observable<any> {
+  var reqHeader = new HttpHeaders({
+    'Content-Type': 'application/json',
+    'Authorization': 'Bearer ' + JSON.parse(sessionStorage.getItem('tokenn'))
+  })
+  return this.http.post<any>(API_URL + 'admin/editdepartment/:departmentid', edtdprtmnts, {headers: reqHeader})
+}
+// delete departments
+// deleteDepartments(): Observable<any>  {
+//   var reqHeader = new HttpHeaders({
+//     'Content-Type': 'application/json',
+//     'Authorization': 'Bearer ' + JSON.parse(sessionStorage.getItem('tokenn'))
+//   })
+//   return this.http.post<any>(API_URL + '', {headers: reqHeader}),
+// }
 
 }

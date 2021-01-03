@@ -5,6 +5,7 @@ import { AdddepartmentsComponent } from './adddepartments/adddepartments.compone
 import { AddscheduleComponent } from './addschedule/addschedule.component';
 import { AdminloginComponent } from './adminlogin.component';
 import { AppointmentsComponent } from './appointments/appointments.component';
+import { ChangepasswordComponent } from './changepassword/changepassword.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { DepartmentsComponent } from './departments/departments.component';
 import { EditdepartmentComponent } from './editdepartment/editdepartment.component';
@@ -19,7 +20,8 @@ const routes: Routes = [
   {path: 'dashboard', component: DashboardComponent},
   {path: 'departments', component: DepartmentsComponent},
   {path: 'adddepartments', component: AdddepartmentsComponent},
-  {path: 'editdepartments', component: EditdepartmentComponent},
+  // {path: 'editdepartments', component: EditdepartmentComponent},
+  {path: 'editdepartments/:selectedid', component: EditdepartmentComponent},
   {path: 'appointments', component: AppointmentsComponent},
   {path: 'addappointments', component: AddappointmentsComponent},
   {path: 'profile', component: MyprofileComponent},
@@ -27,7 +29,8 @@ const routes: Routes = [
   {path: 'settings', component: SettingsComponent},
   {path: 'patients', component: PatientsComponent},
   {path: 'schedule', component: ScheduleComponent},
-  {path: 'add-schedule', component: AddscheduleComponent}
+  {path: 'add-schedule', component: AddscheduleComponent},
+  {path: 'updatepassword', component: ChangepasswordComponent}
 ]
 
 @NgModule({
