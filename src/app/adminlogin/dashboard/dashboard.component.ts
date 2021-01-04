@@ -20,6 +20,10 @@ export class DashboardComponent implements OnInit {
   //   body.appendChild(script);
   // }
   ngOnInit(): void {
+    if(window.sessionStorage.getItem('tokenn') == null) {
+      alert('Session Expired');
+      this.router.navigateByUrl('adminlogin');
+    }
     // this.loadScript("assets/theme/js/jquery-3.2.1.min.js");
     // this.loadScript("assets/theme/js/popper.min.js");
     // this.loadScript("assets/theme/js/bootstrap.min.js");

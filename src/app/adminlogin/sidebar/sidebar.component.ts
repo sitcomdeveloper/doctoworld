@@ -94,4 +94,7 @@ export class SidebarComponent implements OnInit {
   chngepwd() {
     this.router.navigateByUrl("adminlogin/updatepassword");
   }
+  doctors() {
+    this.router.navigateByUrl("adminlogin/doctors");
+  }
 }

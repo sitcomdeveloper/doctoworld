@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ApiService } from 'src/app/api.service';
+import { BsModalRef, BsModalService, ModalOptions } from 'ngx-bootstrap/modal';
+import { DeleteComponent } from '../delete/delete.component';
 
 @Component({
   selector: 'app-departments',
@@ -12,7 +14,9 @@ export class DepartmentsComponent implements OnInit {
   fetchallDepartments: any;
   objectfetchallDepartments: any;
 
-  constructor(private router: Router, private apiService: ApiService, private fb: FormBuilder) { }
+  constructor(private router: Router, private apiService: ApiService, private fb: FormBuilder, private modalService: BsModalService,) { }
+  bsModalRef: BsModalRef;
+
   loadScript(url: string) {
     const body = <HTMLDivElement>document.body;
     const script = document.createElement("script");
@@ -75,5 +79,19 @@ export class DepartmentsComponent implements OnInit {
       this.objectfetchallDepartments = this.fetchallDepartments.departmentDeatil.reverse();
       console.log('fetchallDepartments', this.objectfetchallDepartments);
     })
+  }
+  // delete department popup
+  deleteDepartment(userid) {
+    const initialState = {
+      title: 'Delete Department',
+      id: userid,
+      department: 'department'
+    };
+    // tslint:disable-next-line: max-line-length
+    this.bsModalRef = this.modalService.show(DeleteComponent, Object.assign({ backdrop: 'static', show: true }, { class: 'modal930', initialState }));
+    this.bsModalRef.content.closeBtnName = 'Cancel';
+    this.bsModalRef.content.clddata.subscribe(() => {
+      this.fetchdepartments();
+    });
   }
 }

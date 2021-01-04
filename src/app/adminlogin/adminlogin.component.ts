@@ -50,8 +50,6 @@ loadScript(url: string) {
     // this.loadScript("assets/theme/js/select2.min.js");
     // this.loadScript("assets/theme/js/tagsinput.js");
     // this.loadScript("assets/theme/js/addappointments.js");
-
-
   }
   movetodashboard() {
     // this.router.navigateByUrl('adminlogin/dashboard');

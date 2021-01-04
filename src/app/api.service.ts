@@ -63,28 +63,52 @@ addDepartments(adddprtmnts: any): Observable<any> {
   return this.http.post<any>(API_URL + 'admin/adddepartment', adddprtmnts, {headers: reqHeader});
 }
 // getdepartment by id
-// getDepartmentbyId(): Observable<any> {
-//   var reqHeader = new HttpHeaders({
-//     'Content-Type': 'application/json',
-//     'Authorization': 'Bearer ' + JSON.parse(sessionStorage.getItem('tokenn'))
-//   })
-//   return this.http.post<any>(API_URL + '', {headers: reqHeader}),
-// }
-// edit departments
-editDepartments(edtdprtmnts: any): Observable<any> {
+getDepartmentbyId(departmntID: any): Observable<any> {
   var reqHeader = new HttpHeaders({
     'Content-Type': 'application/json',
     'Authorization': 'Bearer ' + JSON.parse(sessionStorage.getItem('tokenn'))
   })
-  return this.http.post<any>(API_URL + 'admin/editdepartment/:departmentid', edtdprtmnts, {headers: reqHeader})
+  return this.http.get<any>(API_URL + 'admin/getdepartmentbyid/' + departmntID, {headers: reqHeader})
+}
+// edit(update) departments
+editDepartments(edtdprtmnts: any, IDofdepartment: any): Observable<any> {
+  var reqHeader = new HttpHeaders({
+    'Content-Type': 'application/json',
+    'Authorization': 'Bearer ' + JSON.parse(sessionStorage.getItem('tokenn'))
+  })
+  return this.http.post<any>(API_URL + 'admin/editdepartment/' + IDofdepartment, edtdprtmnts, {headers: reqHeader})
+
 }
 // delete departments
-// deleteDepartments(): Observable<any>  {
-//   var reqHeader = new HttpHeaders({
-//     'Content-Type': 'application/json',
-//     'Authorization': 'Bearer ' + JSON.parse(sessionStorage.getItem('tokenn'))
-//   })
-//   return this.http.post<any>(API_URL + '', {headers: reqHeader}),
-// }
-
+deleteDepartments(dltdprt: any): Observable<any>  {
+  var reqHeader = new HttpHeaders({
+    'Content-Type': 'application/json',
+    'Authorization': 'Bearer ' + JSON.parse(sessionStorage.getItem('tokenn'))
+  })
+  return this.http.post<any>(API_URL + 'admin/deletedepartment/' + dltdprt, {},{headers: reqHeader})
+}
+// update password
+updatePassword(updtpwd: any): Observable<any> {
+  var reqHeader = new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer ' + JSON.parse(sessionStorage.getItem('tokenn'))
+      })
+  return this.http.post<any>(API_URL + 'admin/changeadminpassword', updtpwd, {headers: reqHeader});
+}
+// add schedule
+addSchedule(adschdule: any): Observable<any> {
+  var reqHeader = new HttpHeaders({
+    'Content-Type': 'application/json',
+    'Authorization': 'Bearer ' + JSON.parse(sessionStorage.getItem('tokenn'))
+  })
+  return this.http.post<any>(API_URL + 'admin/adddoctorschedule', adschdule, {headers: reqHeader})
+}
+// get all schedule
+getSchedule(): Observable<any> {
+  var reqHeader = new HttpHeaders({
+    'Content-Type': 'application/json',
+    'Authorization': 'Bearer ' + JSON.parse(sessionStorage.getItem('tokenn'))
+  })
+  return this.http.get<any>(API_URL + 'admin/getalldoctorschedule', {headers: reqHeader})
+}
 }

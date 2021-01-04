@@ -8,6 +8,7 @@ import { AppointmentsComponent } from './appointments/appointments.component';
 import { ChangepasswordComponent } from './changepassword/changepassword.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { DepartmentsComponent } from './departments/departments.component';
+import { DoctorsComponent } from './doctors/doctors.component';
 import { EditdepartmentComponent } from './editdepartment/editdepartment.component';
 import { EditprofileComponent } from './editprofile/editprofile.component';
 import { MyprofileComponent } from './myprofile/myprofile.component';
@@ -30,7 +31,8 @@ const routes: Routes = [
   {path: 'patients', component: PatientsComponent},
   {path: 'schedule', component: ScheduleComponent},
   {path: 'add-schedule', component: AddscheduleComponent},
-  {path: 'updatepassword', component: ChangepasswordComponent}
+  {path: 'updatepassword', component: ChangepasswordComponent},
+  {path: 'doctors', component: DoctorsComponent}
 ]
 
 @NgModule({

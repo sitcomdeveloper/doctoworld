@@ -14,9 +14,9 @@ export class HeaderComponent implements OnInit {
   finaladminData: any;
 
   constructor(private router: Router, private apiService: ApiService) {
-    $(document).ready(function() {
-      this.loadScript("assets/theme/js/jquery-3.2.1.min.js");
-    });
+    // $(document).ready(function() {
+    //   this.loadScript("assets/theme/js/jquery-3.2.1.min.js");
+    // });
    }
 
 
@@ -49,7 +49,6 @@ export class HeaderComponent implements OnInit {
     this.fetchAdminDetails();
   }
   recalljs() {
-    $(document).ready(function() {
       this.loadScript("assets/theme/js/jquery-3.2.1.min.js");
     this.loadScript("assets/theme/js/popper.min.js");
     this.loadScript("assets/theme/js/bootstrap.min.js");
@@ -57,8 +56,6 @@ export class HeaderComponent implements OnInit {
     this.loadScript("assets/theme/js/Chart.bundle.js");
     this.loadScript("assets/theme/js/chart.js");
     this.loadScript("assets/theme/js/app.js");
-    alert("hi");
-    });
   }
   fetchAdminDetails() {
     this.apiService.getAdminProfile().subscribe(fetchAdminDtlsRes => {

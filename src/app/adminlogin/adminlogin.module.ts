@@ -19,12 +19,15 @@ import { PatientsComponent } from './patients/patients.component';
 import { ScheduleComponent } from './schedule/schedule.component';
 import { AddscheduleComponent } from './addschedule/addschedule.component';
 import { ChangepasswordComponent } from './changepassword/changepassword.component';
+import { DoctorsComponent } from './doctors/doctors.component';
+import { DeleteComponent } from './delete/delete.component';
 
 
 @NgModule({
-  declarations: [AdminloginComponent, DashboardComponent, SidebarComponent, DepartmentsComponent, HeaderComponent, AppointmentsComponent, AddappointmentsComponent, AdddepartmentsComponent, EditdepartmentComponent, MyprofileComponent, EditprofileComponent, SettingsComponent, PatientsComponent, ScheduleComponent, AddscheduleComponent, ChangepasswordComponent],
+  declarations: [AdminloginComponent, DashboardComponent, SidebarComponent, DepartmentsComponent, HeaderComponent, AppointmentsComponent, AddappointmentsComponent, AdddepartmentsComponent, EditdepartmentComponent, MyprofileComponent, EditprofileComponent, SettingsComponent, PatientsComponent, ScheduleComponent, AddscheduleComponent, ChangepasswordComponent, DoctorsComponent],
   imports: [
     CommonModule, AdminloginRoutingModule, FormsModule, ReactiveFormsModule, ModalModule.forRoot(),
-  ]
+  ],
+  entryComponents: [DeleteComponent]
 })
 export class AdminloginModule { }
