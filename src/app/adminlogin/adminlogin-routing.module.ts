@@ -11,6 +11,7 @@ import { DepartmentsComponent } from './departments/departments.component';
 import { DoctorsComponent } from './doctors/doctors.component';
 import { EditdepartmentComponent } from './editdepartment/editdepartment.component';
 import { EditprofileComponent } from './editprofile/editprofile.component';
+import { EditscheduleComponent } from './editschedule/editschedule.component';
 import { MyprofileComponent } from './myprofile/myprofile.component';
 import { PatientsComponent } from './patients/patients.component';
 import { ScheduleComponent } from './schedule/schedule.component';
@@ -31,6 +32,7 @@ const routes: Routes = [
   {path: 'patients', component: PatientsComponent},
   {path: 'schedule', component: ScheduleComponent},
   {path: 'add-schedule', component: AddscheduleComponent},
+  {path: 'editschedule/:selectedidofschedule', component: EditscheduleComponent},
   {path: 'updatepassword', component: ChangepasswordComponent},
   {path: 'doctors', component: DoctorsComponent}
 ]

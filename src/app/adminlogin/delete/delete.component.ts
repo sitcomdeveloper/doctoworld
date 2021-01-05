@@ -10,19 +10,28 @@ import { ApiService } from 'src/app/api.service';
 export class DeleteComponent implements OnInit {
   @Input() prtdata: any;
   @Output() clddata: EventEmitter<any> = new EventEmitter();
-  department: string;
-  deleteDepartment: boolean;
+  department: any;
+  deleteDepartment: boolean = false;
   title: any;
   getdltdprtRes: any;
   id: number;
+
+  deleteSchedule: boolean = false;
+  schedule: any;
   constructor(private bsmodal: BsModalRef, private apiService: ApiService) { }
 
   ngOnInit(): void {
-    // if (this.department === 'department') {
-    //   this.deleteDepartment = true;
-    // } else {
-    //   this.deleteDepartment = false;
-    // }
+    if (this.department === 'department') {
+      this.deleteDepartment = true;
+    } else {
+      this.deleteDepartment = false;
+    }
+
+    if (this.schedule === 'schedule') {
+      this.deleteSchedule = true;
+    } else {
+      this.deleteSchedule = false;
+    }
   }
   hideModal() {
     this.bsmodal.hide();

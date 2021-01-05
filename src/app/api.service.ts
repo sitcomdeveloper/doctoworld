@@ -111,4 +111,28 @@ getSchedule(): Observable<any> {
   })
   return this.http.get<any>(API_URL + 'admin/getalldoctorschedule', {headers: reqHeader})
 }
+// get schedule by id
+getschedulebyId(schedleid: any): Observable<any> {
+  var reqHeader = new HttpHeaders({
+    'Content-Type': 'application/json',
+    'Authorization': 'Bearer ' + JSON.parse(sessionStorage.getItem('tokenn'))
+  })
+  return this.http.get<any>(API_URL + 'admin/getdoctorschedulebyid/' + schedleid, {headers: reqHeader});
+}
+// update schedule
+updateSchedule(updtschedule: any, IDofschedule: any): Observable<any> {
+  var reqHeader = new HttpHeaders({
+    'Content-Type': 'application/json',
+    'Authorization': 'Bearer ' + JSON.parse(sessionStorage.getItem('tokenn'))
+  })
+  return this.http.post<any>(API_URL + 'admin/editdoctorschedule/' + IDofschedule,updtschedule, {headers: reqHeader})
+}
+// deleet schedule
+dltSchedule(): Observable<any> {
+  var reqHeader = new HttpHeaders({
+    'Content-Type': 'application/json',
+    'Authorization': 'Bearer ' + JSON.parse(sessionStorage.getItem('tokenn'))
+  })
+  return this.http.post<any>(API_URL + '', {headers: reqHeader})
+}
 }
