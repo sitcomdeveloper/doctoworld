@@ -54,7 +54,7 @@ loadScript(url: string) {
   movetodashboard() {
     // this.router.navigateByUrl('adminlogin/dashboard');
     const adminlgn = {
-      doctorId: this.adminLoginForm.value.doctorid,
+      adminId: this.adminLoginForm.value.doctorid,
       password: this.adminLoginForm.value.passwrd,
     }
     this.apiService.adminLogin(adminlgn).subscribe(loginRes => {

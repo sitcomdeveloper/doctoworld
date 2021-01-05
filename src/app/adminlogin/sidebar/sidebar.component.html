@@ -79,15 +79,18 @@
       <li>
         <a href="activities.html"><i class="fa fa-bell-o"></i> <span>Activities</span></a>
       </li> -->
-      <li class="submenu">
+      <!-- <li class="submenu">
         <a href="#"><i class="fa fa-flag-o"></i> <span> Reports </span> <span class="menu-arrow"></span></a>
         <ul style="display: none;">
           <li><a href="expense-reports.html"> Expense Report </a></li>
           <li><a href="invoice-reports.html"> Invoice Report </a></li>
         </ul>
-      </li>
+      </li> -->
                   <li>
                       <a routerLink="adminlogin" (click)="chngepwd()"><i class="fa fa-lock"></i> <span>Change Password</span></a>
                   </li>
+                  <li>
+                    <a routerLink="adminlogin" (click)="logout()"><i class="fa fa-sign-out"></i> <span>Logout</span></a>
+                </li>
 
               </ul>

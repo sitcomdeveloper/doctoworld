@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { ApiService } from 'src/app/api.service';
 
 @Component({
@@ -7,19 +8,25 @@ import { ApiService } from 'src/app/api.service';
   styleUrls: ['./doctors.component.css']
 })
 export class DoctorsComponent implements OnInit {
-  fetchallDepartments: any;
-  objectfetchallDepartments: any;
+  fetchalldocts: any;
+  alldrsRes: any;
 
-  constructor(private apiService: ApiService ) { }
+  constructor(private apiService: ApiService, private router: Router) { }
 
   ngOnInit(): void {
-    this.fetchdepartments()
+    this.getalldoctors()
   }
-  fetchdepartments() {
-    this.apiService.getDepartments().subscribe(ftchdepartmntsRes => {
-      this.fetchallDepartments = ftchdepartmntsRes;
-      this.objectfetchallDepartments = this.fetchallDepartments.departmentDeatil.reverse();
-      console.log('fetchallDepartments', this.objectfetchallDepartments);
-    })
+getalldoctors() {
+  this.apiService.getDoctor().subscribe(getdrRes => {
+    this.fetchalldocts = getdrRes;
+    this.alldrsRes = this.fetchalldocts.doctorData.reverse();
+    console.log('getdrRes', this.alldrsRes);
+  })
+}
+  adddoctor() {
+    this.router.navigateByUrl("adminlogin/adddoctor");
+  }
+  editdoctor(doctorselectedid: any) {
+    this.router.navigate(['/adminlogin/editdoctor', doctorselectedid]);
   }
 }

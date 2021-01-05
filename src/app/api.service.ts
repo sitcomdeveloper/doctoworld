@@ -135,4 +135,28 @@ dltSchedule(): Observable<any> {
   })
   return this.http.post<any>(API_URL + '', {headers: reqHeader})
 }
+// add doctor
+addDoctor(crtdoctr: any): Observable<any> {
+  var reqHeader = new HttpHeaders({
+    'Content-Type': 'application/json',
+    'Authorization': 'Bearer ' + JSON.parse(sessionStorage.getItem('tokenn'))
+  })
+  return this.http.post<any>(API_URL + 'admin/adddoctor',crtdoctr, {headers: reqHeader})
+}
+// get all doctor
+getDoctor(): Observable<any> {
+var reqHeader = new HttpHeaders({
+  'Content-Type': 'application/json',
+  'Authorization': 'Bearer ' + JSON.parse(sessionStorage.getItem('tokenn'))
+})
+return this.http.get<any>(API_URL + 'admin/getalldoctor', {headers: reqHeader})
+}
+// get doctr detila by id
+getdoctorDetails(doctrID: any): Observable<any> {
+  var reqHeader = new HttpHeaders({
+    'Content-Type': 'application/json',
+    'Authorization': 'Bearer ' + JSON.parse(sessionStorage.getItem('tokenn'))
+  })
+  return this.http.get<any>(API_URL + 'admin/getdoctorbyid/' + doctrID, {headers: reqHeader});
+}
 }

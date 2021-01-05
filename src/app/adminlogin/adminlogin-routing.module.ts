@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AddappointmentsComponent } from './addappointments/addappointments.component';
 import { AdddepartmentsComponent } from './adddepartments/adddepartments.component';
+import { AdddoctorComponent } from './adddoctor/adddoctor.component';
 import { AddscheduleComponent } from './addschedule/addschedule.component';
 import { AdminloginComponent } from './adminlogin.component';
 import { AppointmentsComponent } from './appointments/appointments.component';
@@ -10,6 +11,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { DepartmentsComponent } from './departments/departments.component';
 import { DoctorsComponent } from './doctors/doctors.component';
 import { EditdepartmentComponent } from './editdepartment/editdepartment.component';
+import { EditdoctorComponent } from './editdoctor/editdoctor.component';
 import { EditprofileComponent } from './editprofile/editprofile.component';
 import { EditscheduleComponent } from './editschedule/editschedule.component';
 import { MyprofileComponent } from './myprofile/myprofile.component';
@@ -34,7 +36,9 @@ const routes: Routes = [
   {path: 'add-schedule', component: AddscheduleComponent},
   {path: 'editschedule/:selectedidofschedule', component: EditscheduleComponent},
   {path: 'updatepassword', component: ChangepasswordComponent},
-  {path: 'doctors', component: DoctorsComponent}
+  {path: 'doctors', component: DoctorsComponent},
+  {path: 'adddoctor', component: AdddoctorComponent},
+  {path: 'editdoctor/:doctorselectedid', component: EditdoctorComponent}
 ]
 
 @NgModule({

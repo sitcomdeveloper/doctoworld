@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ApiService } from 'src/app/api.service';
 
 @Component({
   selector: 'app-sidebar',
@@ -7,8 +8,9 @@ import { Router } from '@angular/router';
   styleUrls: ['./sidebar.component.css']
 })
 export class SidebarComponent implements OnInit {
+  logoutres: any;
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private apiService: ApiService) { }
 
   loadScript(url: string) {
     const body = <HTMLDivElement>document.body;
@@ -96,5 +98,18 @@ export class SidebarComponent implements OnInit {
   }
   doctors() {
     this.router.navigateByUrl("adminlogin/doctors");
+  }
+  logout() {
+    const admnlgot = {}
+    this.apiService.adminLogout(admnlgot).subscribe(adminlogoutRes => {
+      this.logoutres = adminlogoutRes;
+      console.log('logoutres', adminlogoutRes);
+      setTimeout(() => {
+        this.router.navigateByUrl('adminlogin');
+      },
+        100);
+        // window.sessionStorage.clear();
+    })
+window.sessionStorage.clear();
   }
 }

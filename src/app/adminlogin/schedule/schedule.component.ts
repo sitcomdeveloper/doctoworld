@@ -39,7 +39,7 @@ export class ScheduleComponent implements OnInit {
     const initialState = {
       title: 'Delete Schedule',
       scheduleid: selectedidofschedule,
-      schedule: 'schedule'
+      schedule: 'sche'
     };
     // tslint:disable-next-line: max-line-length
     this.bsModalRef = this.modalService.show(DeleteComponent, Object.assign({ backdrop: 'static', show: true }, { class: 'modal930', initialState }));
