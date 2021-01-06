@@ -1,5 +1,8 @@
+import { ThrowStmt } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
+import { ApiService } from 'src/app/api.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -7,8 +10,16 @@ import { Router } from '@angular/router';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
+  totalnumberofDoctors: any;
+  resofgetPatients: any;
+  patientsData: any;
+  Resofdashboarddtls: any;
+  fetchalldocts: any;
+  alldrsRes: any;
+  resofapoointment: any;
+  allAppointments: any;
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private apiService: ApiService) { }
 
   // loadScript(url: string) {
   //   const body = <HTMLDivElement>document.body;
@@ -23,7 +34,15 @@ export class DashboardComponent implements OnInit {
     if(window.sessionStorage.getItem('tokenn') == null) {
       alert('Session Expired');
       this.router.navigateByUrl('adminlogin');
+
+      // get total number of doctors
+      this.totalnumberofDoctors = JSON.parse(window.sessionStorage.getItem('drlength'));
+      console.log('parsedata', this.totalnumberofDoctors);
     }
+    this.fetchPatients();
+    this.getdashboarddetails();
+    this.getalldoctors();
+    this.fetchAppointment();
     // this.loadScript("assets/theme/js/jquery-3.2.1.min.js");
     // this.loadScript("assets/theme/js/popper.min.js");
     // this.loadScript("assets/theme/js/bootstrap.min.js");
@@ -44,5 +63,43 @@ export class DashboardComponent implements OnInit {
   }
   allappointments() {
     this.router.navigateByUrl('adminlogin/appointments');
+  }
+  // get all patients
+  fetchPatients() {
+this.apiService.getPatients().subscribe(getpatientsRes => {
+  this.resofgetPatients = getpatientsRes;
+  this.patientsData = this.resofgetPatients.patientData
+  console.log('resofgetPatients', this.patientsData);
+})
+  }
+  // move to all patients
+  movetoallPatients() {
+    this.router.navigateByUrl("adminlogin/patients");
+  }
+  // dashboard details
+  getdashboarddetails() {
+    this.apiService.getDetails().subscribe(dashbrddtlsRes => {
+      this.Resofdashboarddtls = dashbrddtlsRes;
+      console.log('Resofdashboarddtls', dashbrddtlsRes);
+    })
+  }
+  movetoallDoctors() {
+    this.router.navigateByUrl("adminlogin/doctors");
+  }
+  // get all doctors
+  getalldoctors() {
+    this.apiService.getDoctor().subscribe(getdrRes => {
+      this.fetchalldocts = getdrRes;
+      this.alldrsRes = this.fetchalldocts.doctorData.reverse();
+      console.log('getdrRes', this.alldrsRes);
+    })
+  }
+   // get all apointment
+   fetchAppointment() {
+    this.apiService.getAppointments().subscribe(appointmentsRes => {
+      this.resofapoointment = appointmentsRes;
+     this.allAppointments = this.resofapoointment.appointmentData
+      console.log('resofapoointment', this.allAppointments);
+    })
   }
 }

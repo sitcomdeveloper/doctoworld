@@ -116,8 +116,9 @@
                             </select>
                       </div>
                       <div class="m-t-20 text-center">
+                        <div class="message">{{this.updateddoctorres?.message}}</div>
                         <button class="btn btn-danger submit-btn" (click)="backtodoctor()">Cancel</button>
-                          <button class="btn btn-primary submit-btn">Update</button>
+                          <button class="btn btn-primary submit-btn" (click)="updatedoctors()">Update</button>
                       </div>
                   </form>
               </div>

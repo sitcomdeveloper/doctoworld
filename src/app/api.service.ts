@@ -127,13 +127,13 @@ updateSchedule(updtschedule: any, IDofschedule: any): Observable<any> {
   })
   return this.http.post<any>(API_URL + 'admin/editdoctorschedule/' + IDofschedule,updtschedule, {headers: reqHeader})
 }
-// deleet schedule
-dltSchedule(): Observable<any> {
+// delete schedule
+dltSchedule(rmvschedule: any): Observable<any> {
   var reqHeader = new HttpHeaders({
     'Content-Type': 'application/json',
     'Authorization': 'Bearer ' + JSON.parse(sessionStorage.getItem('tokenn'))
   })
-  return this.http.post<any>(API_URL + '', {headers: reqHeader})
+  return this.http.post<any>(API_URL + 'admin/deletedoctorschedule/' + rmvschedule, {}, {headers: reqHeader})
 }
 // add doctor
 addDoctor(crtdoctr: any): Observable<any> {
@@ -158,5 +158,37 @@ getdoctorDetails(doctrID: any): Observable<any> {
     'Authorization': 'Bearer ' + JSON.parse(sessionStorage.getItem('tokenn'))
   })
   return this.http.get<any>(API_URL + 'admin/getdoctorbyid/' + doctrID, {headers: reqHeader});
+}
+// update doctor
+updateDoctor(updtdr: any, Idofdoctor: any): Observable<any> {
+  var reqHeader = new HttpHeaders({
+    'Content-Type': 'application/json',
+    'Authorization': 'Bearer ' + JSON.parse(sessionStorage.getItem('tokenn'))
+  })
+  return this.http.post<any>(API_URL + 'admin/editdoctorprofile/' + Idofdoctor, updtdr, {headers: reqHeader});
+}
+// get all patients
+getPatients(): Observable<any> {
+  var reqHeader = new HttpHeaders({
+    'Content-Type': 'application/json',
+    'Authorization': 'Bearer ' + JSON.parse(sessionStorage.getItem('tokenn'))
+  })
+  return this.http.get<any>(API_URL + 'admin/getallpatient', {headers: reqHeader});
+}
+// get all details(patients,doctors)
+getDetails(): Observable<any> {
+  var reqHeader = new HttpHeaders({
+    'Content-Type': 'application/json',
+    'Authorization': 'Bearer ' + JSON.parse(sessionStorage.getItem('tokenn'))
+  })
+  return this.http.get<any>(API_URL + 'admin/dashboard', {headers: reqHeader});
+}
+// get all appointments
+getAppointments(): Observable<any> {
+  var reqHeader = new HttpHeaders({
+    'Content-Type': 'application/json',
+    'Authorization': 'Bearer ' + JSON.parse(sessionStorage.getItem('tokenn'))
+  })
+  return this.http.get<any>(API_URL + 'admin/getallappointment', {headers: reqHeader});
 }
 }

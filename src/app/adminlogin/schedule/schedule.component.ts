@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { ApiService } from 'src/app/api.service';
 import { BsModalRef, BsModalService, ModalOptions } from 'ngx-bootstrap/modal';
 import { DeleteComponent } from '../delete/delete.component';
+import { DeletescheduleComponent } from '../deleteschedule/deleteschedule.component';
 
 @Component({
   selector: 'app-schedule',
@@ -42,10 +43,10 @@ export class ScheduleComponent implements OnInit {
       schedule: 'sche'
     };
     // tslint:disable-next-line: max-line-length
-    this.bsModalRef = this.modalService.show(DeleteComponent, Object.assign({ backdrop: 'static', show: true }, { class: 'modal930', initialState }));
+    this.bsModalRef = this.modalService.show(DeletescheduleComponent, Object.assign({ backdrop: 'static', show: true }, { class: 'modal930', initialState }));
     this.bsModalRef.content.closeBtnName = 'Cancel';
     this.bsModalRef.content.clddata.subscribe(() => {
-      // this.fechScedules();
+      this.fechScedules();
     });
   }
   }

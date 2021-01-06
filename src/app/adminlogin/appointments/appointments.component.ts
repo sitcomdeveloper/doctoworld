@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ApiService } from 'src/app/api.service';
 
 @Component({
   selector: 'app-appointments',
@@ -7,8 +8,10 @@ import { Router } from '@angular/router';
   styleUrls: ['./appointments.component.css']
 })
 export class AppointmentsComponent implements OnInit {
+  resofapoointment: any;
+  allAppointments: any;
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private apiService: ApiService) { }
 
   loadScript(url: string) {
     const body = <HTMLDivElement>document.body;
@@ -48,16 +51,14 @@ export class AppointmentsComponent implements OnInit {
     // this.loadScript("assets/theme/js/jquery.fullcalendar.js");
     // this.loadScript("assets/theme/js/select2.min.js");
     // this.loadScript("assets/theme/js/tagsinput.js");
+    this.fetchAppointment();
   }
-  addappointments() {
-    this.router.navigateByUrl("adminlogin/addappointments");
-    this.loadScript("assets/theme/js/jquery-3.2.1.min.js");
-    this.loadScript("assets/theme/js/popper.min.js");
-    this.loadScript("assets/theme/js/bootstrap.min.js");
-    this.loadScript("assets/theme/js/jquery.slimscroll.js");
-    this.loadScript("assets/theme/js/select2.min.js");
-    this.loadScript("assets/theme/js/moment.min.js");
-    this.loadScript("assets/theme/js/bootstrap-datetimepicker.min.js");
-    this.loadScript("assets/theme/js/app.js");
+  // get all apointment
+  fetchAppointment() {
+    this.apiService.getAppointments().subscribe(appointmentsRes => {
+      this.resofapoointment = appointmentsRes;
+     this.allAppointments = this.resofapoointment.appointmentData
+      console.log('resofapoointment', this.allAppointments);
+    })
   }
 }

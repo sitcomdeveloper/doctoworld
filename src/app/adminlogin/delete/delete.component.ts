@@ -21,17 +21,17 @@ export class DeleteComponent implements OnInit {
   constructor(private bsmodal: BsModalRef, private apiService: ApiService) { }
 
   ngOnInit(): void {
-    if (this.department === "department") {
-      this.deleteDepartment = true;
-    } else {
-      this.deleteDepartment = false;
-    }
+    // if (this.department === "department") {
+    //   this.deleteDepartment = true;
+    // } else {
+    //   this.deleteDepartment = false;
+    // }
 
-    if (this.schedule === "sche") {
-      this.deleteSchedule = true;
-    } else {
-      this.deleteSchedule = false;
-    }
+    // if (this.schedule === "sche") {
+    //   this.deleteSchedule = true;
+    // } else {
+    //   this.deleteSchedule = false;
+    // }
   }
   hideModal() {
     this.bsmodal.hide();

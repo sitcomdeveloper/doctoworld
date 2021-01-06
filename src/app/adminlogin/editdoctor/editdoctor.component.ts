@@ -13,6 +13,7 @@ export class EditdoctorComponent implements OnInit {
   resofdrdtls: any;
   assignfetchIDofdoctor: any;
   slecteddrDetails: any;
+  updateddoctorres: any;
 
   constructor(private router: Router, private apiService: ApiService, private fb:FormBuilder, private route: ActivatedRoute) { }
 
@@ -55,5 +56,30 @@ export class EditdoctorComponent implements OnInit {
   }
   backtodoctor() {
     this.router.navigateByUrl("adminlogin/doctors");
+  }
+  // update doctor
+  updatedoctors() {
+    const updtdr = {
+      firstName: this.editdoctorForm.value.firstname,
+      lastName: this.editdoctorForm.value.lastname,
+      email: this.editdoctorForm.value.email,
+      gender: this.editdoctorForm.value.gender,
+      address: this.editdoctorForm.value.add,
+      country: this.editdoctorForm.value.coutry,
+      city: this.editdoctorForm.value.cty,
+      state: this.editdoctorForm.value.state,
+      postalcode: this.editdoctorForm.value.postalcode,
+      mobile: this.editdoctorForm.value.phone,
+      status: this.editdoctorForm.value.status,
+    }
+    this.apiService.updateDoctor(updtdr, this.assignfetchIDofdoctor).subscribe(updtdrRes => {
+      this.updateddoctorres = updtdrRes;
+      if(this.updateddoctorres.message === 'Doctor details updated successfully...') {
+        setTimeout(() => {
+          this.router.navigateByUrl("adminlogin/doctors");
+        }, 2000);
+      }
+      console.log('updateddoctorres', updtdrRes);
+    })
   }
 }
