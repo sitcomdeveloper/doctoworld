@@ -112,4 +112,11 @@ export class SidebarComponent implements OnInit {
     })
 window.sessionStorage.clear();
   }
+  profileSection() {
+    this.router.navigateByUrl("adminlogin/profile");
+  }
+  // update profile
+  editProfile() {
+    this.router.navigateByUrl("adminlogin/updateprofile");
+  }
 }

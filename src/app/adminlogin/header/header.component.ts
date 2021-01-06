@@ -18,8 +18,6 @@ export class HeaderComponent implements OnInit {
     //   this.loadScript("assets/theme/js/jquery-3.2.1.min.js");
     // });
    }
-
-
   loadScript(url: string) {
     const body = <HTMLDivElement>document.body;
     const script = document.createElement("script");
@@ -34,9 +32,6 @@ export class HeaderComponent implements OnInit {
     this.recalljs();
     this.parsedloginDetails = JSON.parse(window.sessionStorage.getItem('loginDetails'));
     console.log('Login User', this.parsedloginDetails);
-
-
-
     // this.loadScript("assets/theme/js/addappointments.js");
     // this.loadScript("assets/theme/js/moment.min.js");
     // this.loadScript("assets/theme/js/bootstrap-datetimepicker.min.js");
