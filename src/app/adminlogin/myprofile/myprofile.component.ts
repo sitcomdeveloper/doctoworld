@@ -44,18 +44,10 @@ export class MyprofileComponent implements OnInit {
     this.apiService.getAdminProfile().subscribe(fetchAdminDtlsRes => {
       this.admindtlsRes = fetchAdminDtlsRes;
       this.finaladminData = this.admindtlsRes.adminData;
-      console.log('admindtlsRes', this.finaladminData);
+      // console.log('admindtlsRes', this.finaladminData);
     })
   }
   movetoUpdateProfile() {
 this.router.navigateByUrl("adminlogin/updateprofile");
-// this.loadScript("assets/theme/js/jquery-3.2.1.min.js");
-//     this.loadScript("assets/theme/js/popper.min.js");
-//     this.loadScript("assets/theme/js/bootstrap.min.js");
-//     this.loadScript("assets/theme/js/jquery.slimscroll.js");
-//     this.loadScript("assets/theme/js/select2.min.js");
-//     this.loadScript("assets/theme/js/moment.min.js");
-//     this.loadScript("assets/theme/js/bootstrap-datetimepicker.min.js");
-//     this.loadScript("assets/theme/js/app.js");
   }
 }

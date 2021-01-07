@@ -49,7 +49,7 @@ export class EditdepartmentComponent implements OnInit {
         desc:  this.departdetailonthebasisofID.description,
         status:  this.departdetailonthebasisofID.status,
       })
-      console.log('fetchdepartment', getdepartmentRes);
+      // console.log('fetchdepartment', getdepartmentRes);
     })
   }
   // update departments
@@ -66,7 +66,7 @@ export class EditdepartmentComponent implements OnInit {
           this.router.navigateByUrl("adminlogin/departments");
         }, 2000);
       }
-      console.log('geteditdepartmentRes', edtdepatmntRes);
+      // console.log('geteditdepartmentRes', edtdepatmntRes);
     })
     this.loadScript("assets/theme/js/jquery-3.2.1.min.js");
     this.loadScript("assets/theme/js/popper.min.js");

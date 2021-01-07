@@ -12,6 +12,8 @@ import { ApiService } from 'src/app/api.service';
 export class AddscheduleComponent implements OnInit {
   newscheduleRes: any;
   addscheduleForm: FormGroup
+  fetchalldocts: any;
+  alldrsRes: any;
 
   constructor(private router: Router, private apiService: ApiService, private fb: FormBuilder) {
   }
@@ -45,6 +47,7 @@ export class AddscheduleComponent implements OnInit {
       msg: [''],
       status: [''],
     })
+    this.getalldoctors();
   }
   backtoallScehedules() {
     this.router.navigateByUrl('adminlogin/schedule');
@@ -66,7 +69,14 @@ export class AddscheduleComponent implements OnInit {
           this.router.navigateByUrl('adminlogin/schedule')
         }, 2000);
       }
-      console.log('newscheduleRes', addscheduleRes);
+      // console.log('newscheduleRes', addscheduleRes);
+    })
+  }
+  // get all doctor
+  getalldoctors() {
+    this.apiService.getDoctor().subscribe(getdrRes => {
+      this.fetchalldocts = getdrRes;
+      this.alldrsRes = this.fetchalldocts.doctorData.reverse();
     })
   }
 }

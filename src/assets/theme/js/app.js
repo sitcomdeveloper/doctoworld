@@ -55,7 +55,7 @@ $(document).ready(function($) {
 	// Chat sidebar overlay
 	$(document).on('click', '#task_chat', function() {
 		var $target = $($(this).attr('href'));
-		console.log($target);
+		// console.log($target);
 		sidebar_overlay($target);
 		return false;
 	});
@@ -212,7 +212,7 @@ $(document).ready(function($) {
 		var dropZone = document.getElementById('drop-zone');
 		var uploadForm = document.getElementById('js-upload-form');
 		var startUpload = function(files) {
-			console.log(files);
+			// console.log(files);
 		};
 		uploadForm.addEventListener('submit', function(e) {
 			var uploadFiles = document.getElementById('js-upload-files').files;

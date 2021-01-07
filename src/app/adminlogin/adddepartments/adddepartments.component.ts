@@ -66,7 +66,7 @@ export class AdddepartmentsComponent implements OnInit {
         },
           2000);
       }
-      console.log('getnewDepartments', adddeprtmntsRes);
+      // console.log('getnewDepartments', adddeprtmntsRes);
     })
   }
   movetoDepartments() {

@@ -12,6 +12,8 @@ export class AdddoctorComponent implements OnInit {
   addDoctorForm: FormGroup;
   resofnewDR: any;
   fetchalldocts: any;
+  fetchallDepartments: any;
+  objectfetchallDepartments: any;
   constructor(private router: Router, private apiService: ApiService, private fb: FormBuilder) { }
 
   ngOnInit(): void {
@@ -29,7 +31,9 @@ export class AdddoctorComponent implements OnInit {
       postalcode: [''],
       phone: [''],
       status: [''],
+      department: ['']
     })
+    this.fetchdepartments();
   }
 // add new doctor
 addnewDR() {
@@ -47,6 +51,7 @@ addnewDR() {
     country: this.addDoctorForm.value.country,
     postalcode: this.addDoctorForm.value.postalcode,
     status: this.addDoctorForm.value.status,
+    department: this.addDoctorForm.value.department,
   }
   this.apiService.addDoctor(crtdoctr).subscribe(adddrres => {
     this.resofnewDR = adddrres;
@@ -56,7 +61,7 @@ addnewDR() {
       }, 2000);
       this.getalldoctors();
     }
-    console.log('resofnewDR', adddrres);
+    // console.log('resofnewDR', adddrres);
   })
 }
 // cancel button
@@ -67,6 +72,13 @@ backtodoctor() {
 getalldoctors() {
   this.apiService.getDoctor().subscribe(getdrRes => {
     this.fetchalldocts = getdrRes;
+  })
+}
+// get department
+fetchdepartments() {
+  this.apiService.getDepartments().subscribe(ftchdepartmntsRes => {
+    this.fetchallDepartments = ftchdepartmntsRes;
+    this.objectfetchallDepartments = this.fetchallDepartments.departmentDeatil.reverse();
   })
 }
 }

@@ -63,7 +63,6 @@ export class DepartmentsComponent implements OnInit {
     this.loadScript("assets/theme/js/app.js");
   }
   editdepartments(selectedid: any) {
-    console.log(selectedid);
     this.router.navigate(['/adminlogin/editdepartments', selectedid]);
     this.loadScript("assets/theme/js/jquery-3.2.1.min.js");
     this.loadScript("assets/theme/js/popper.min.js");
@@ -77,7 +76,7 @@ export class DepartmentsComponent implements OnInit {
     this.apiService.getDepartments().subscribe(ftchdepartmntsRes => {
       this.fetchallDepartments = ftchdepartmntsRes;
       this.objectfetchallDepartments = this.fetchallDepartments.departmentDeatil.reverse();
-      console.log('fetchallDepartments', this.objectfetchallDepartments);
+      // console.log('fetchallDepartments', this.objectfetchallDepartments);
     })
   }
   // delete department popup

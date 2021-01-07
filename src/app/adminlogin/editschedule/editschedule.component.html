@@ -24,9 +24,7 @@
               <select _ngcontent-qpo-c3="" class="form-control itemformcontrol"
               data-live-search="true" formControlName="drname">
               <option ngcontent-qpo-c3="">Select</option>
-              <option ngcontent-qpo-c3="" value="Doctor 1">Doctor 1</option>
-              <option ngcontent-qpo-c3="" value="Doctor 12">Doctor 12</option>
-              <option ngcontent-qpo-c3="" value="Doctor 13">Doctor 13</option>
+                          <option ngcontent-qpo-c3="" *ngFor = "let doctorName of alldrsRes">{{doctorName?.firstName}} {{doctorName?.lastName}}</option>
   </select>
             </div>
                           </div>
@@ -34,11 +32,15 @@
             <div class="form-group">
               <label>Available Days</label>
               <select _ngcontent-qpo-c3="" multiple class="form-control itemformcontrol"
-                data-live-search="true" formControlName="avlbledays">
+                data-live-search="true" formControlName="avlbledays" tooltip="Press Ctrl for multiple selection of days">
                 <option ngcontent-qpo-c3="">Select</option>
                 <option ngcontent-qpo-c3="" value="Sunday">Sunday</option>
                 <option ngcontent-qpo-c3="" value="Monday">Monday</option>
                 <option ngcontent-qpo-c3="" value="Tuesday">Tuesday</option>
+                <option ngcontent-qpo-c3="" value="Wednesday">Wednesday</option>
+                <option ngcontent-qpo-c3="" value="Thursday">Thursday</option>
+                <option ngcontent-qpo-c3="" value="Friday">Friday</option>
+                <option ngcontent-qpo-c3="" value="Saturday">Saturday</option>
     </select>
             </div>
                           </div>
@@ -46,28 +48,30 @@
                       <div class="row">
                           <div class="col-md-6">
                               <div class="form-group">
-                                  <label>Start Time</label>
+                                  <label>Shift Start</label>
                                   <div class="time-icon">
                                     <select _ngcontent-qpo-c3="" class="form-control itemformcontrol"
                                     data-live-search="true" formControlName="starttime">
                                     <option ngcontent-qpo-c3="">Select</option>
-                                    <option ngcontent-qpo-c3="" value="1">1</option>
-                                    <option ngcontent-qpo-c3="" value="2">2</option>
-                                    <option ngcontent-qpo-c3="" value="3">3</option>
+                                    <option ngcontent-qpo-c3="" value="Morning">Morning</option>
+                                    <option ngcontent-qpo-c3="" value="Afternoon">Afternoon</option>
+                                    <option ngcontent-qpo-c3="" value="Evening">Evening</option>
+                                    <option ngcontent-qpo-c3="" value="Night">Night</option>
                                     </select>
                                   </div>
                               </div>
                           </div>
                           <div class="col-md-6">
                               <div class="form-group">
-                                  <label>End Time</label>
+                                  <label>Shift End</label>
                                   <div class="time-icon">
                                     <select _ngcontent-qpo-c3="" class="form-control itemformcontrol"
                                     data-live-search="true" formControlName="endtime">
                                     <option ngcontent-qpo-c3="">Select</option>
-                                    <option ngcontent-qpo-c3="" value="11">11</option>
-                                    <option ngcontent-qpo-c3="" value="12">12</option>
-                                    <option ngcontent-qpo-c3="" value="3">3</option>
+                                    <option ngcontent-qpo-c3="" value="Morning">Morning</option>
+                                    <option ngcontent-qpo-c3="" value="Afternoon">Afternoon</option>
+                                    <option ngcontent-qpo-c3="" value="Evening">Evening</option>
+                                    <option ngcontent-qpo-c3="" value="Night">Night</option>
                                     </select>
                                   </div>
                               </div>

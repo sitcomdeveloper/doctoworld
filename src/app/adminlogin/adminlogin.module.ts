@@ -4,6 +4,7 @@ import { AdminloginComponent } from './adminlogin.component';
 import { AdminloginRoutingModule } from './adminlogin-routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ModalModule, BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
+import { TooltipModule } from 'ngx-bootstrap/tooltip';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { DepartmentsComponent } from './departments/departments.component';
@@ -25,12 +26,13 @@ import { EditscheduleComponent } from './editschedule/editschedule.component';
 import { AdddoctorComponent } from './adddoctor/adddoctor.component';
 import { EditdoctorComponent } from './editdoctor/editdoctor.component';
 import { DeletescheduleComponent } from './deleteschedule/deleteschedule.component';
+import { DeletedoctorComponent } from './deletedoctor/deletedoctor.component';
 
 
 @NgModule({
-  declarations: [AdminloginComponent, DashboardComponent, SidebarComponent, DepartmentsComponent, HeaderComponent, AppointmentsComponent, AddappointmentsComponent, AdddepartmentsComponent, EditdepartmentComponent, MyprofileComponent, EditprofileComponent, SettingsComponent, PatientsComponent, ScheduleComponent, AddscheduleComponent, ChangepasswordComponent, DoctorsComponent, EditscheduleComponent, AdddoctorComponent, EditdoctorComponent, DeletescheduleComponent],
+  declarations: [AdminloginComponent, DashboardComponent, SidebarComponent, DepartmentsComponent, HeaderComponent, AppointmentsComponent, AddappointmentsComponent, AdddepartmentsComponent, EditdepartmentComponent, MyprofileComponent, EditprofileComponent, SettingsComponent, PatientsComponent, ScheduleComponent, AddscheduleComponent, ChangepasswordComponent, DoctorsComponent, EditscheduleComponent, AdddoctorComponent, EditdoctorComponent, DeletescheduleComponent, DeletedoctorComponent],
   imports: [
-    CommonModule, AdminloginRoutingModule, FormsModule, ReactiveFormsModule, ModalModule.forRoot(),
+    CommonModule, AdminloginRoutingModule, FormsModule, ReactiveFormsModule, ModalModule.forRoot(), TooltipModule.forRoot(),
   ],
   entryComponents: [DeleteComponent]
 })

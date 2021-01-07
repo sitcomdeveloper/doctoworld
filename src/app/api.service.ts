@@ -167,6 +167,14 @@ updateDoctor(updtdr: any, Idofdoctor: any): Observable<any> {
   })
   return this.http.post<any>(API_URL + 'admin/editdoctorprofile/' + Idofdoctor, updtdr, {headers: reqHeader});
 }
+// delete doctor
+deleteDoctor(dltdr: any): Observable<any> {
+  var reqHeader = new HttpHeaders({
+    'Content-Type': 'application/json',
+    'Authorization': 'Bearer ' + JSON.parse(sessionStorage.getItem('tokenn'))
+  })
+  return this.http.post<any>(API_URL + 'admin/deletedoctor/' + dltdr, {}, {headers: reqHeader});
+}
 // get all patients
 getPatients(): Observable<any> {
   var reqHeader = new HttpHeaders({

@@ -33,7 +33,10 @@ export class ChangepasswordComponent implements OnInit {
           this.router.navigateByUrl("adminlogin/dashboard");
         }, 2000);
       }
-      console.log('updatedPwd', updtpwdres);
+      // console.log('updatedPwd', updtpwdres);
     })
+  }
+  movetodashboard() {
+    this.router.navigateByUrl("adminlogin/dashboard");
   }
 }

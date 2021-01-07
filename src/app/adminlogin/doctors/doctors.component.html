@@ -26,12 +26,12 @@
                       <div class="dropdown profile-action">
                       </div>
                       <h4 class="doctor-name text-ellipsis"><a href="profile.html">{{data?.firstName}} {{data?.lastName}}</a></h4>
-                      <div class="doc-prof">Gynecologist</div>
+                      <div class="doc-prof">{{data?.department}}</div>
                       <div class="user-country">
                           <i class="fa fa-map-marker"></i> {{data?.city}}, {{data?.country}}
                       </div>
                       <button type="button" class="btn btn-primary" routerLink="adminlogin" (click)="editdoctor(data?._id)"><i class="fa fa-pencil m-r-5"></i>Edit</button>
-                        <button type="button" class="btn btn-danger"><i class="fa fa-trash-o m-r-5"></i>Delete</button>
+                        <button type="button" class="btn btn-danger" (click)="opendletepopup(data?._id)"><i class="fa fa-trash-o m-r-5"></i>Delete</button>
                   </div>
               </div>
               <!-- <div class="col-md-4 col-sm-4  col-lg-3">
@@ -386,7 +386,7 @@
           </div>
       </div>
   </div>
-<div id="delete_doctor" class="modal fade delete-modal" role="dialog">
+<!-- <div id="delete_doctor" class="modal fade delete-modal" role="dialog">
 <div class="modal-dialog modal-dialog-centered">
   <div class="modal-content">
     <div class="modal-body text-center">
@@ -398,5 +398,5 @@
     </div>
   </div>
 </div>
-</div>
+</div> -->
 </div>

@@ -14,6 +14,8 @@ export class EditdoctorComponent implements OnInit {
   assignfetchIDofdoctor: any;
   slecteddrDetails: any;
   updateddoctorres: any;
+  objectfetchallDepartments: any;
+  fetchallDepartments: any;
 
   constructor(private router: Router, private apiService: ApiService, private fb:FormBuilder, private route: ActivatedRoute) { }
 
@@ -30,7 +32,10 @@ export class EditdoctorComponent implements OnInit {
       postalcode: [''],
       phone: [''],
       status: [''],
+      department: ['']
     })
+
+    this.fetchdepartments();
 
     // patch detail of doctor by id
     const doctorfetchID = this.route.snapshot.paramMap.get('doctorselectedid');
@@ -50,8 +55,9 @@ export class EditdoctorComponent implements OnInit {
       postalcode: this.slecteddrDetails.postalcode,
       phone: this.slecteddrDetails.mobile,
       status: this.slecteddrDetails.status,
+      department: this.slecteddrDetails.department,
       })
-      console.log('resofdrdtls', this.slecteddrDetails);
+      // console.log('resofdrdtls', this.slecteddrDetails);
     })
   }
   backtodoctor() {
@@ -71,6 +77,7 @@ export class EditdoctorComponent implements OnInit {
       postalcode: this.editdoctorForm.value.postalcode,
       mobile: this.editdoctorForm.value.phone,
       status: this.editdoctorForm.value.status,
+      department: this.editdoctorForm.value.department,
     }
     this.apiService.updateDoctor(updtdr, this.assignfetchIDofdoctor).subscribe(updtdrRes => {
       this.updateddoctorres = updtdrRes;
@@ -80,6 +87,13 @@ export class EditdoctorComponent implements OnInit {
         }, 2000);
       }
       console.log('updateddoctorres', updtdrRes);
+    })
+  }
+  // get all departments
+  fetchdepartments() {
+    this.apiService.getDepartments().subscribe(ftchdepartmntsRes => {
+      this.fetchallDepartments = ftchdepartmntsRes;
+      this.objectfetchallDepartments = this.fetchallDepartments.departmentDeatil.reverse();
     })
   }
 }

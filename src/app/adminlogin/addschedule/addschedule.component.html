@@ -1,341 +1,316 @@
 <div class="main-wrapper">
   <app-header></app-header>>
   <div class="sidebar" id="sidebar">
-      <div class="sidebar-inner slimscroll">
-          <div id="sidebar-menu" class="sidebar-menu">
-          <app-sidebar></app-sidebar>>
-          </div>
+    <div class="sidebar-inner slimscroll">
+      <div id="sidebar-menu" class="sidebar-menu">
+        <app-sidebar></app-sidebar>>
       </div>
+    </div>
   </div>
   <div class="page-wrapper">
-      <div class="content">
-          <div class="row">
-              <div class="col-lg-8 offset-lg-2">
-                  <h4 class="page-title">Add Schedule</h4>
+    <div class="content">
+      <div class="row">
+        <div class="col-lg-8 offset-lg-2">
+          <h4 class="page-title">Add Schedule</h4>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-8 offset-lg-2">
+          <form [formGroup]="addscheduleForm">
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label>Doctor Name</label>
+                  <select _ngcontent-qpo-c3="" class="form-control itemformcontrol" data-live-search="true"
+                    formControlName="doctorname">
+                    <option ngcontent-qpo-c3="">Select</option>
+                    <option ngcontent-qpo-c3="" *ngFor="let doctorName of alldrsRes">{{doctorName?.firstName}}
+                      {{doctorName?.lastName}}</option>
+                  </select>
+                </div>
               </div>
-          </div>
-          <div class="row">
-              <div class="col-lg-8 offset-lg-2">
-                  <form [formGroup] = "addscheduleForm">
-                      <div class="row">
-                          <div class="col-md-6">
-                              <div class="form-group">
-              <label>Doctor Name</label>
-                <select _ngcontent-qpo-c3="" class="form-control itemformcontrol"
-                          data-live-search="true" formControlName="doctorname">
-                          <option ngcontent-qpo-c3="">Select</option>
-                          <option ngcontent-qpo-c3="" value="Doctor 1">Doctor 1</option>
-                          <option ngcontent-qpo-c3="" value="Doctor 12">Doctor 12</option>
-                          <option ngcontent-qpo-c3="" value="Doctor 13">Doctor 13</option>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label>Available Days</label>
+                  <select _ngcontent-qpo-c3="" multiple class="form-control itemformcontrol" data-live-search="true"
+                    formControlName="availabledays" tooltip="Press Ctrl for multiple selection of days">
+                    <option ngcontent-qpo-c3="">Select</option>
+                    <option ngcontent-qpo-c3="" value="Sunday">Sunday</option>
+                    <option ngcontent-qpo-c3="" value="Monday">Monday</option>
+                    <option ngcontent-qpo-c3="" value="Tuesday">Tuesday</option>
+                    <option ngcontent-qpo-c3="" value="Wednesday">Wednesday</option>
+                    <option ngcontent-qpo-c3="" value="Thursday">Thursday</option>
+                    <option ngcontent-qpo-c3="" value="Friday">Friday</option>
+                    <option ngcontent-qpo-c3="" value="Saturday">Saturday</option>
+                  </select>
+
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label>Shift Start</label>
+                  <div class="time-icon">
+                    <!-- <input type="text" class="form-control" id="datetimepicker3"> -->
+                    <select _ngcontent-qpo-c3="" class="form-control itemformcontrol" data-live-search="true"
+                      formControlName="starttime">
+                      <option ngcontent-qpo-c3="">Select</option>
+                      <option ngcontent-qpo-c3="" value="Morning">Morning</option>
+                      <option ngcontent-qpo-c3="" value="Afternoon">Afternoon</option>
+                      <option ngcontent-qpo-c3="" value="Evening">Evening</option>
+                      <option ngcontent-qpo-c3="" value="Night">Night</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label>Shift End</label>
+                  <div class="time-icon">
+                    <!-- <input type="text" class="form-control" id="datetimepicker4"> -->
+                    <select _ngcontent-qpo-c3="" class="form-control itemformcontrol" data-live-search="true"
+                      formControlName="endtime">
+                      <option ngcontent-qpo-c3="">Select</option>
+                      <option ngcontent-qpo-c3="" value="Morning">Morning</option>
+                      <option ngcontent-qpo-c3="" value="Afternoon">Afternoon</option>
+                      <option ngcontent-qpo-c3="" value="Evening">Evening</option>
+                      <option ngcontent-qpo-c3="" value="Night">Night</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label>Message</label>
+              <textarea cols="30" rows="4" class="form-control" formControlName="msg"></textarea>
+            </div>
+            <div class="form-group">
+              <label class="display-block">Schedule Status</label>
+              <select _ngcontent-qpo-c3="" class="form-control itemformcontrol" data-live-search="true"
+                formControlName="status">
+                <option ngcontent-qpo-c3="">Select</option>
+                <option ngcontent-qpo-c3="" value="Active">Active</option>
+                <option ngcontent-qpo-c3="" value="Inactive">Inactive</option>
               </select>
             </div>
-                          </div>
-                          <div class="col-md-6">
-            <div class="form-group">
-              <label>Available Days</label>
-              <!-- <select class="select" multiple formControlName="availabledays">
-                <option>Select Days</option>
-                <option>Sunday</option>
-                <option>Monday</option>
-                <option>Tuesday</option>
-                <option>Wednesday</option>
-                <option>Thursday</option>
-                <option>Friday</option>
-                <option>Saturday</option> -->
-                <select _ngcontent-qpo-c3="" multiple class="form-control itemformcontrol"
-                data-live-search="true" formControlName="availabledays">
-                <option ngcontent-qpo-c3="">Select</option>
-                <option ngcontent-qpo-c3="" value="Sunday">Sunday</option>
-                <option ngcontent-qpo-c3="" value="Monday">Monday</option>
-                <option ngcontent-qpo-c3="" value="Tuesday">Tuesday</option>
-    </select>
-
+            <div class="m-t-20 text-center">
+              <div class="message">{{this.newscheduleRes?.message}}</div>
+              <button class="btn btn-danger submit-btn" (click)="backtoallScehedules()">Cancel</button>
+              <button class="btn btn-primary submit-btn" (click)="addnewSchedule()">Create Schedule</button>
             </div>
-                          </div>
-                      </div>
-                      <div class="row">
-                          <div class="col-md-6">
-                              <div class="form-group">
-                                  <label>Start Time</label>
-                                  <div class="time-icon">
-                                      <!-- <input type="text" class="form-control" id="datetimepicker3"> -->
-                                      <select _ngcontent-qpo-c3="" class="form-control itemformcontrol"
-                          data-live-search="true" formControlName="starttime">
-                          <option ngcontent-qpo-c3="">Select</option>
-                          <option ngcontent-qpo-c3="" value="1">1</option>
-                          <option ngcontent-qpo-c3="" value="2">2</option>
-                          <option ngcontent-qpo-c3="" value="3">3</option>
-                          <!-- <option ngcontent-qpo-c3="" value=""></option>
-                          <option ngcontent-qpo-c3="" value=""></option>
-                          <option ngcontent-qpo-c3="" value=""></option>
-                          <option ngcontent-qpo-c3="" value=""></option>
-                          <option ngcontent-qpo-c3="" value=""></option>
-                          <option ngcontent-qpo-c3="" value=""></option>
-                          <option ngcontent-qpo-c3="" value=""></option>
-                          <option ngcontent-qpo-c3="" value=""></option>
-                          <option ngcontent-qpo-c3="" value=""></option>
-                          <option ngcontent-qpo-c3="" value=""></option>
-                          <option ngcontent-qpo-c3="" value=""></option>
-                          <option ngcontent-qpo-c3="" value=""></option>
-                          <option ngcontent-qpo-c3="" value=""></option>
-                          <option ngcontent-qpo-c3="" value=""></option>
-                          <option ngcontent-qpo-c3="" value=""></option>
-                          <option ngcontent-qpo-c3="" value=""></option>
-                          <option ngcontent-qpo-c3="" value=""></option>
-                          <option ngcontent-qpo-c3="" value=""></option>
-                          <option ngcontent-qpo-c3="" value=""></option>
-                          <option ngcontent-qpo-c3="" value=""></option>
-                          <option ngcontent-qpo-c3="" value=""></option> -->
-                            </select>
-                                  </div>
-                              </div>
-                          </div>
-                          <div class="col-md-6">
-                              <div class="form-group">
-                                  <label>End Time</label>
-                                  <div class="time-icon">
-                                      <!-- <input type="text" class="form-control" id="datetimepicker4"> -->
-                                      <select _ngcontent-qpo-c3="" class="form-control itemformcontrol"
-                                      data-live-search="true" formControlName="endtime">
-                                      <option ngcontent-qpo-c3="">Select</option>
-                                      <option ngcontent-qpo-c3="" value="11">11</option>
-                                      <option ngcontent-qpo-c3="" value="12">12</option>
-                                      <option ngcontent-qpo-c3="" value="3">3</option>
-                                      </select>
-                                  </div>
-                              </div>
-                          </div>
-                      </div>
-                      <div class="form-group">
-                          <label>Message</label>
-                          <textarea cols="30" rows="4" class="form-control" formControlName="msg"></textarea>
-                      </div>
-                      <div class="form-group">
-                          <label class="display-block">Schedule Status</label>
-         <select _ngcontent-qpo-c3="" class="form-control itemformcontrol"
-                          data-live-search="true" formControlName="status">
-                          <option ngcontent-qpo-c3="">Select</option>
-                          <option ngcontent-qpo-c3="" value="Active">Active</option>
-                          <option ngcontent-qpo-c3="" value="Inactive">Inactive</option>
-                            </select>
-                      </div>
-                      <div class="m-t-20 text-center">
-                        <div class="message">{{this.newscheduleRes?.message}}</div>
-                        <button class="btn btn-danger submit-btn" (click)="backtoallScehedules()">Cancel</button>
-                          <button class="btn btn-primary submit-btn" (click)="addnewSchedule()">Create Schedule</button>
-                      </div>
-                  </form>
-              </div>
-          </div>
+          </form>
+        </div>
       </div>
-<div class="notification-box">
-          <div class="msg-sidebar notifications msg-noti">
-              <div class="topnav-dropdown-header">
-                  <span>Messages</span>
-              </div>
-              <div class="drop-scroll msg-list-scroll" id="msg_list">
-                  <ul class="list-box">
-                      <li>
-                          <a href="chat.html">
-                              <div class="list-item">
-                                  <div class="list-left">
-                                      <span class="avatar">R</span>
-                                  </div>
-                                  <div class="list-body">
-                                      <span class="message-author">Richard Miles </span>
-                                      <span class="message-time">12:28 AM</span>
-                                      <div class="clearfix"></div>
-                                      <span class="message-content">Lorem ipsum dolor sit amet, consectetur adipiscing</span>
-                                  </div>
-                              </div>
-                          </a>
-                      </li>
-                      <li>
-                          <a href="chat.html">
-                              <div class="list-item new-message">
-                                  <div class="list-left">
-                                      <span class="avatar">J</span>
-                                  </div>
-                                  <div class="list-body">
-                                      <span class="message-author">John Doe</span>
-                                      <span class="message-time">1 Aug</span>
-                                      <div class="clearfix"></div>
-                                      <span class="message-content">Lorem ipsum dolor sit amet, consectetur adipiscing</span>
-                                  </div>
-                              </div>
-                          </a>
-                      </li>
-                      <li>
-                          <a href="chat.html">
-                              <div class="list-item">
-                                  <div class="list-left">
-                                      <span class="avatar">T</span>
-                                  </div>
-                                  <div class="list-body">
-                                      <span class="message-author"> Tarah Shropshire </span>
-                                      <span class="message-time">12:28 AM</span>
-                                      <div class="clearfix"></div>
-                                      <span class="message-content">Lorem ipsum dolor sit amet, consectetur adipiscing</span>
-                                  </div>
-                              </div>
-                          </a>
-                      </li>
-                      <li>
-                          <a href="chat.html">
-                              <div class="list-item">
-                                  <div class="list-left">
-                                      <span class="avatar">M</span>
-                                  </div>
-                                  <div class="list-body">
-                                      <span class="message-author">Mike Litorus</span>
-                                      <span class="message-time">12:28 AM</span>
-                                      <div class="clearfix"></div>
-                                      <span class="message-content">Lorem ipsum dolor sit amet, consectetur adipiscing</span>
-                                  </div>
-                              </div>
-                          </a>
-                      </li>
-                      <li>
-                          <a href="chat.html">
-                              <div class="list-item">
-                                  <div class="list-left">
-                                      <span class="avatar">C</span>
-                                  </div>
-                                  <div class="list-body">
-                                      <span class="message-author"> Catherine Manseau </span>
-                                      <span class="message-time">12:28 AM</span>
-                                      <div class="clearfix"></div>
-                                      <span class="message-content">Lorem ipsum dolor sit amet, consectetur adipiscing</span>
-                                  </div>
-                              </div>
-                          </a>
-                      </li>
-                      <li>
-                          <a href="chat.html">
-                              <div class="list-item">
-                                  <div class="list-left">
-                                      <span class="avatar">D</span>
-                                  </div>
-                                  <div class="list-body">
-                                      <span class="message-author"> Domenic Houston </span>
-                                      <span class="message-time">12:28 AM</span>
-                                      <div class="clearfix"></div>
-                                      <span class="message-content">Lorem ipsum dolor sit amet, consectetur adipiscing</span>
-                                  </div>
-                              </div>
-                          </a>
-                      </li>
-                      <li>
-                          <a href="chat.html">
-                              <div class="list-item">
-                                  <div class="list-left">
-                                      <span class="avatar">B</span>
-                                  </div>
-                                  <div class="list-body">
-                                      <span class="message-author"> Buster Wigton </span>
-                                      <span class="message-time">12:28 AM</span>
-                                      <div class="clearfix"></div>
-                                      <span class="message-content">Lorem ipsum dolor sit amet, consectetur adipiscing</span>
-                                  </div>
-                              </div>
-                          </a>
-                      </li>
-                      <li>
-                          <a href="chat.html">
-                              <div class="list-item">
-                                  <div class="list-left">
-                                      <span class="avatar">R</span>
-                                  </div>
-                                  <div class="list-body">
-                                      <span class="message-author"> Rolland Webber </span>
-                                      <span class="message-time">12:28 AM</span>
-                                      <div class="clearfix"></div>
-                                      <span class="message-content">Lorem ipsum dolor sit amet, consectetur adipiscing</span>
-                                  </div>
-                              </div>
-                          </a>
-                      </li>
-                      <li>
-                          <a href="chat.html">
-                              <div class="list-item">
-                                  <div class="list-left">
-                                      <span class="avatar">C</span>
-                                  </div>
-                                  <div class="list-body">
-                                      <span class="message-author"> Claire Mapes </span>
-                                      <span class="message-time">12:28 AM</span>
-                                      <div class="clearfix"></div>
-                                      <span class="message-content">Lorem ipsum dolor sit amet, consectetur adipiscing</span>
-                                  </div>
-                              </div>
-                          </a>
-                      </li>
-                      <li>
-                          <a href="chat.html">
-                              <div class="list-item">
-                                  <div class="list-left">
-                                      <span class="avatar">M</span>
-                                  </div>
-                                  <div class="list-body">
-                                      <span class="message-author">Melita Faucher</span>
-                                      <span class="message-time">12:28 AM</span>
-                                      <div class="clearfix"></div>
-                                      <span class="message-content">Lorem ipsum dolor sit amet, consectetur adipiscing</span>
-                                  </div>
-                              </div>
-                          </a>
-                      </li>
-                      <li>
-                          <a href="chat.html">
-                              <div class="list-item">
-                                  <div class="list-left">
-                                      <span class="avatar">J</span>
-                                  </div>
-                                  <div class="list-body">
-                                      <span class="message-author">Jeffery Lalor</span>
-                                      <span class="message-time">12:28 AM</span>
-                                      <div class="clearfix"></div>
-                                      <span class="message-content">Lorem ipsum dolor sit amet, consectetur adipiscing</span>
-                                  </div>
-                              </div>
-                          </a>
-                      </li>
-                      <li>
-                          <a href="chat.html">
-                              <div class="list-item">
-                                  <div class="list-left">
-                                      <span class="avatar">L</span>
-                                  </div>
-                                  <div class="list-body">
-                                      <span class="message-author">Loren Gatlin</span>
-                                      <span class="message-time">12:28 AM</span>
-                                      <div class="clearfix"></div>
-                                      <span class="message-content">Lorem ipsum dolor sit amet, consectetur adipiscing</span>
-                                  </div>
-                              </div>
-                          </a>
-                      </li>
-                      <li>
-                          <a href="chat.html">
-                              <div class="list-item">
-                                  <div class="list-left">
-                                      <span class="avatar">T</span>
-                                  </div>
-                                  <div class="list-body">
-                                      <span class="message-author">Tarah Shropshire</span>
-                                      <span class="message-time">12:28 AM</span>
-                                      <div class="clearfix"></div>
-                                      <span class="message-content">Lorem ipsum dolor sit amet, consectetur adipiscing</span>
-                                  </div>
-                              </div>
-                          </a>
-                      </li>
-                  </ul>
-              </div>
-              <div class="topnav-dropdown-footer">
-                  <a href="chat.html">See all messages</a>
-              </div>
-          </div>
+    </div>
+    <div class="notification-box">
+      <div class="msg-sidebar notifications msg-noti">
+        <div class="topnav-dropdown-header">
+          <span>Messages</span>
+        </div>
+        <div class="drop-scroll msg-list-scroll" id="msg_list">
+          <ul class="list-box">
+            <li>
+              <a href="chat.html">
+                <div class="list-item">
+                  <div class="list-left">
+                    <span class="avatar">R</span>
+                  </div>
+                  <div class="list-body">
+                    <span class="message-author">Richard Miles </span>
+                    <span class="message-time">12:28 AM</span>
+                    <div class="clearfix"></div>
+                    <span class="message-content">Lorem ipsum dolor sit amet, consectetur adipiscing</span>
+                  </div>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="chat.html">
+                <div class="list-item new-message">
+                  <div class="list-left">
+                    <span class="avatar">J</span>
+                  </div>
+                  <div class="list-body">
+                    <span class="message-author">John Doe</span>
+                    <span class="message-time">1 Aug</span>
+                    <div class="clearfix"></div>
+                    <span class="message-content">Lorem ipsum dolor sit amet, consectetur adipiscing</span>
+                  </div>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="chat.html">
+                <div class="list-item">
+                  <div class="list-left">
+                    <span class="avatar">T</span>
+                  </div>
+                  <div class="list-body">
+                    <span class="message-author"> Tarah Shropshire </span>
+                    <span class="message-time">12:28 AM</span>
+                    <div class="clearfix"></div>
+                    <span class="message-content">Lorem ipsum dolor sit amet, consectetur adipiscing</span>
+                  </div>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="chat.html">
+                <div class="list-item">
+                  <div class="list-left">
+                    <span class="avatar">M</span>
+                  </div>
+                  <div class="list-body">
+                    <span class="message-author">Mike Litorus</span>
+                    <span class="message-time">12:28 AM</span>
+                    <div class="clearfix"></div>
+                    <span class="message-content">Lorem ipsum dolor sit amet, consectetur adipiscing</span>
+                  </div>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="chat.html">
+                <div class="list-item">
+                  <div class="list-left">
+                    <span class="avatar">C</span>
+                  </div>
+                  <div class="list-body">
+                    <span class="message-author"> Catherine Manseau </span>
+                    <span class="message-time">12:28 AM</span>
+                    <div class="clearfix"></div>
+                    <span class="message-content">Lorem ipsum dolor sit amet, consectetur adipiscing</span>
+                  </div>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="chat.html">
+                <div class="list-item">
+                  <div class="list-left">
+                    <span class="avatar">D</span>
+                  </div>
+                  <div class="list-body">
+                    <span class="message-author"> Domenic Houston </span>
+                    <span class="message-time">12:28 AM</span>
+                    <div class="clearfix"></div>
+                    <span class="message-content">Lorem ipsum dolor sit amet, consectetur adipiscing</span>
+                  </div>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="chat.html">
+                <div class="list-item">
+                  <div class="list-left">
+                    <span class="avatar">B</span>
+                  </div>
+                  <div class="list-body">
+                    <span class="message-author"> Buster Wigton </span>
+                    <span class="message-time">12:28 AM</span>
+                    <div class="clearfix"></div>
+                    <span class="message-content">Lorem ipsum dolor sit amet, consectetur adipiscing</span>
+                  </div>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="chat.html">
+                <div class="list-item">
+                  <div class="list-left">
+                    <span class="avatar">R</span>
+                  </div>
+                  <div class="list-body">
+                    <span class="message-author"> Rolland Webber </span>
+                    <span class="message-time">12:28 AM</span>
+                    <div class="clearfix"></div>
+                    <span class="message-content">Lorem ipsum dolor sit amet, consectetur adipiscing</span>
+                  </div>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="chat.html">
+                <div class="list-item">
+                  <div class="list-left">
+                    <span class="avatar">C</span>
+                  </div>
+                  <div class="list-body">
+                    <span class="message-author"> Claire Mapes </span>
+                    <span class="message-time">12:28 AM</span>
+                    <div class="clearfix"></div>
+                    <span class="message-content">Lorem ipsum dolor sit amet, consectetur adipiscing</span>
+                  </div>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="chat.html">
+                <div class="list-item">
+                  <div class="list-left">
+                    <span class="avatar">M</span>
+                  </div>
+                  <div class="list-body">
+                    <span class="message-author">Melita Faucher</span>
+                    <span class="message-time">12:28 AM</span>
+                    <div class="clearfix"></div>
+                    <span class="message-content">Lorem ipsum dolor sit amet, consectetur adipiscing</span>
+                  </div>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="chat.html">
+                <div class="list-item">
+                  <div class="list-left">
+                    <span class="avatar">J</span>
+                  </div>
+                  <div class="list-body">
+                    <span class="message-author">Jeffery Lalor</span>
+                    <span class="message-time">12:28 AM</span>
+                    <div class="clearfix"></div>
+                    <span class="message-content">Lorem ipsum dolor sit amet, consectetur adipiscing</span>
+                  </div>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="chat.html">
+                <div class="list-item">
+                  <div class="list-left">
+                    <span class="avatar">L</span>
+                  </div>
+                  <div class="list-body">
+                    <span class="message-author">Loren Gatlin</span>
+                    <span class="message-time">12:28 AM</span>
+                    <div class="clearfix"></div>
+                    <span class="message-content">Lorem ipsum dolor sit amet, consectetur adipiscing</span>
+                  </div>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="chat.html">
+                <div class="list-item">
+                  <div class="list-left">
+                    <span class="avatar">T</span>
+                  </div>
+                  <div class="list-body">
+                    <span class="message-author">Tarah Shropshire</span>
+                    <span class="message-time">12:28 AM</span>
+                    <div class="clearfix"></div>
+                    <span class="message-content">Lorem ipsum dolor sit amet, consectetur adipiscing</span>
+                  </div>
+                </div>
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div class="topnav-dropdown-footer">
+          <a href="chat.html">See all messages</a>
+        </div>
       </div>
+    </div>
   </div>
 </div>

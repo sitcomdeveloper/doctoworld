@@ -118,6 +118,15 @@
                                   <input class="form-control" type="text" formControlName="phone">
                               </div>
                           </div>
+                          <div class="col-sm-6">
+                            <div class="form-group">
+                              <label>Department</label>
+                              <select class="form-control select" formControlName="department">
+                                <option>Select</option>
+                                <option *ngFor = "let dataofdepartment of objectfetchallDepartments">{{dataofdepartment?.name}}</option>
+                              </select>
+                            </div>
+                          </div>
                           <!-- <div class="col-sm-6">
             <div class="form-group">
               <label>Avatar</label>

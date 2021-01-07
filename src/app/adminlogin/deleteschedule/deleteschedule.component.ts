@@ -29,7 +29,7 @@ export class DeletescheduleComponent implements OnInit {
           this.hideModal();
         }, 2000);
       }
-      console.log('resofdltSchedule', dltScheduleRes);
+      // console.log('resofdltSchedule', dltScheduleRes);
     })
   }
 }

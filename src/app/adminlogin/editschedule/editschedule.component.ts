@@ -14,6 +14,8 @@ export class EditscheduleComponent implements OnInit {
   doctorschedule: any;
   editscheduleForm: FormGroup
   Resupdatedschedule: any;
+  fetchalldocts: any;
+  alldrsRes: any;
 
   constructor(private router: Router, private route: ActivatedRoute, private apiService: ApiService, private fb: FormBuilder) { }
 
@@ -25,6 +27,8 @@ export class EditscheduleComponent implements OnInit {
       endtime: [''],
       status: [''],
     })
+
+    this.getalldoctors()
 
     const fetchIDofschedule = this.route.snapshot.paramMap.get('selectedidofschedule');
     this.assignfetchIDofschedule = fetchIDofschedule;
@@ -38,7 +42,7 @@ export class EditscheduleComponent implements OnInit {
         endtime: this.doctorschedule.endTime,
         status: this.doctorschedule.status,
       })
-      console.log('ResofgetSchedules', this.doctorschedule);
+      // console.log('ResofgetSchedules', this.doctorschedule);
     })
   }
   backtoallschedules() {
@@ -60,7 +64,15 @@ export class EditscheduleComponent implements OnInit {
           this.router.navigateByUrl('adminlogin/schedule');
         }, 2000);
       }
-      console.log('Resupdatedschedule', updtescheduleres);
+      // console.log('Resupdatedschedule', updtescheduleres);
+    })
+  }
+   // get all doctor
+   getalldoctors() {
+    this.apiService.getDoctor().subscribe(getdrRes => {
+      this.fetchalldocts = getdrRes;
+      this.alldrsRes = this.fetchalldocts.doctorData.reverse();
+      // console.log('getdrRes', this.alldrsRes);
     })
   }
 }

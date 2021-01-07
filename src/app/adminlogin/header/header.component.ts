@@ -31,7 +31,7 @@ export class HeaderComponent implements OnInit {
   ngOnInit(): void {
     this.recalljs();
     this.parsedloginDetails = JSON.parse(window.sessionStorage.getItem('loginDetails'));
-    console.log('Login User', this.parsedloginDetails);
+    // console.log('Login User', this.parsedloginDetails);
     // this.loadScript("assets/theme/js/addappointments.js");
     // this.loadScript("assets/theme/js/moment.min.js");
     // this.loadScript("assets/theme/js/bootstrap-datetimepicker.min.js");
@@ -56,14 +56,14 @@ export class HeaderComponent implements OnInit {
     this.apiService.getAdminProfile().subscribe(fetchAdminDtlsRes => {
       this.admindtlsRes = fetchAdminDtlsRes;
       this.finaladminData = this.admindtlsRes.adminData;
-      console.log('admindtlsRes', this.finaladminData);
+      // console.log('admindtlsRes', this.finaladminData);
     })
   }
   logout() {
     const admnlgot = {}
     this.apiService.adminLogout(admnlgot).subscribe(adminlogoutRes => {
       this.logoutres = adminlogoutRes;
-      console.log('logoutres', adminlogoutRes);
+      // console.log('logoutres', adminlogoutRes);
       setTimeout(() => {
         this.router.navigateByUrl('adminlogin');
       },

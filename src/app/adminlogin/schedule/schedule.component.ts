@@ -25,8 +25,8 @@ export class ScheduleComponent implements OnInit {
   fechScedules() {
     this.apiService.getSchedule().subscribe(getschedulesRes => {
       this.fetScheduleRes = getschedulesRes;
-       this.scheduleDetails = this.fetScheduleRes.scheduleDetail
-      console.log('fetScheduleRes', this.scheduleDetails);
+       this.scheduleDetails = this.fetScheduleRes.scheduleDetail.reverse();
+      // console.log('fetScheduleRes', this.scheduleDetails);
     })
   }
   addSchedule() {

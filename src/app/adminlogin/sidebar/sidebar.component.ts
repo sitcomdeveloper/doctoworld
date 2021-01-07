@@ -103,7 +103,7 @@ export class SidebarComponent implements OnInit {
     const admnlgot = {}
     this.apiService.adminLogout(admnlgot).subscribe(adminlogoutRes => {
       this.logoutres = adminlogoutRes;
-      console.log('logoutres', adminlogoutRes);
+      // console.log('logoutres', adminlogoutRes);
       setTimeout(() => {
         this.router.navigateByUrl('adminlogin');
       },

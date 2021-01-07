@@ -34,10 +34,6 @@ export class DashboardComponent implements OnInit {
     if(window.sessionStorage.getItem('tokenn') == null) {
       alert('Session Expired');
       this.router.navigateByUrl('adminlogin');
-
-      // get total number of doctors
-      this.totalnumberofDoctors = JSON.parse(window.sessionStorage.getItem('drlength'));
-      console.log('parsedata', this.totalnumberofDoctors);
     }
     this.fetchPatients();
     this.getdashboarddetails();
@@ -69,7 +65,7 @@ export class DashboardComponent implements OnInit {
 this.apiService.getPatients().subscribe(getpatientsRes => {
   this.resofgetPatients = getpatientsRes;
   this.patientsData = this.resofgetPatients.patientData
-  console.log('resofgetPatients', this.patientsData);
+  // console.log('resofgetPatients', this.patientsData);
 })
   }
   // move to all patients
@@ -80,7 +76,7 @@ this.apiService.getPatients().subscribe(getpatientsRes => {
   getdashboarddetails() {
     this.apiService.getDetails().subscribe(dashbrddtlsRes => {
       this.Resofdashboarddtls = dashbrddtlsRes;
-      console.log('Resofdashboarddtls', dashbrddtlsRes);
+      // console.log('Resofdashboarddtls', dashbrddtlsRes);
     })
   }
   movetoallDoctors() {
@@ -91,7 +87,7 @@ this.apiService.getPatients().subscribe(getpatientsRes => {
     this.apiService.getDoctor().subscribe(getdrRes => {
       this.fetchalldocts = getdrRes;
       this.alldrsRes = this.fetchalldocts.doctorData.reverse();
-      console.log('getdrRes', this.alldrsRes);
+      // console.log('getdrRes', this.alldrsRes);
     })
   }
    // get all apointment
@@ -99,7 +95,7 @@ this.apiService.getPatients().subscribe(getpatientsRes => {
     this.apiService.getAppointments().subscribe(appointmentsRes => {
       this.resofapoointment = appointmentsRes;
      this.allAppointments = this.resofapoointment.appointmentData
-      console.log('resofapoointment', this.allAppointments);
+      // console.log('resofapoointment', this.allAppointments);
     })
   }
 }
