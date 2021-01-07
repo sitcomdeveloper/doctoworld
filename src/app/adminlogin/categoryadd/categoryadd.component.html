@@ -1,9 +1,9 @@
 <div class="main-wrapper">
-  <app-header></app-header>>
+  <app-header></app-header>
   <div class="sidebar" id="sidebar">
     <div class="sidebar-inner slimscroll">
       <div id="sidebar-menu" class="sidebar-menu">
-        <app-sidebar></app-sidebar>>
+        <app-sidebar></app-sidebar>
       </div>
     </div>
   </div>
@@ -11,93 +11,46 @@
     <div class="content">
       <div class="row">
         <div class="col-lg-8 offset-lg-2">
-          <h4 class="page-title">Add Schedule</h4>
+          <h4 class="page-title">Add Category</h4>
         </div>
       </div>
       <div class="row">
         <div class="col-lg-8 offset-lg-2">
-          <form [formGroup]="addscheduleForm">
-            <div class="row">
-              <div class="col-md-6">
-                <div class="form-group">
-                  <label>Doctor Name</label>
-                  <select _ngcontent-qpo-c3="" class="form-control itemformcontrol" data-live-search="true"
-                    formControlName="doctorname">
-                    <option ngcontent-qpo-c3="">Select</option>
-                    <option ngcontent-qpo-c3="" value="{{doctorName?._id}}" *ngFor="let doctorName of alldrsRes">{{doctorName?.firstName}}
-                      {{doctorName?.lastName}}</option>
-                  </select>
-                </div>
-              </div>
-              <div class="col-md-6">
-                <div class="form-group">
-                  <label>Available Days</label>
-                  <select _ngcontent-qpo-c3="" multiple class="form-control itemformcontrol" data-live-search="true"
-                    formControlName="availabledays" tooltip="Press Ctrl for multiple selection of days">
-                    <option ngcontent-qpo-c3="">Select</option>
-                    <option ngcontent-qpo-c3="" value="Sunday">Sunday</option>
-                    <option ngcontent-qpo-c3="" value="Monday">Monday</option>
-                    <option ngcontent-qpo-c3="" value="Tuesday">Tuesday</option>
-                    <option ngcontent-qpo-c3="" value="Wednesday">Wednesday</option>
-                    <option ngcontent-qpo-c3="" value="Thursday">Thursday</option>
-                    <option ngcontent-qpo-c3="" value="Friday">Friday</option>
-                    <option ngcontent-qpo-c3="" value="Saturday">Saturday</option>
-                  </select>
+          <form [formGroup]="categoryAddForm">
+            <div class="form-group">
+              <label>Category Name</label>
+              <input class="form-control" type="text" formControlName="cname">
+            </div>
 
-                </div>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-md-6">
-                <div class="form-group">
-                  <label>Shift Start</label>
-                  <div class="time-icon">
-                    <!-- <input type="text" class="form-control" id="datetimepicker3"> -->
-                    <select _ngcontent-qpo-c3="" class="form-control itemformcontrol" data-live-search="true"
-                      formControlName="starttime">
-                      <option ngcontent-qpo-c3="">Select</option>
-                      <option ngcontent-qpo-c3="" value="Morning">Morning</option>
-                      <option ngcontent-qpo-c3="" value="Afternoon">Afternoon</option>
-                      <option ngcontent-qpo-c3="" value="Evening">Evening</option>
-                      <option ngcontent-qpo-c3="" value="Night">Night</option>
-                    </select>
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-6">
-                <div class="form-group">
-                  <label>Shift End</label>
-                  <div class="time-icon">
-                    <!-- <input type="text" class="form-control" id="datetimepicker4"> -->
-                    <select _ngcontent-qpo-c3="" class="form-control itemformcontrol" data-live-search="true"
-                      formControlName="endtime">
-                      <option ngcontent-qpo-c3="">Select</option>
-                      <option ngcontent-qpo-c3="" value="Morning">Morning</option>
-                      <option ngcontent-qpo-c3="" value="Afternoon">Afternoon</option>
-                      <option ngcontent-qpo-c3="" value="Evening">Evening</option>
-                      <option ngcontent-qpo-c3="" value="Night">Night</option>
-                    </select>
-                  </div>
-                </div>
-              </div>
-            </div>
             <div class="form-group">
-              <label>Message</label>
-              <textarea cols="30" rows="4" class="form-control" formControlName="msg"></textarea>
+              <label>Medicine Category</label>
+              <input class="form-control" type="text" formControlName="medicinecategory">
             </div>
+
             <div class="form-group">
-              <label class="display-block">Schedule Status</label>
-              <select _ngcontent-qpo-c3="" class="form-control itemformcontrol" data-live-search="true"
-                formControlName="status">
-                <option ngcontent-qpo-c3="">Select</option>
-                <option ngcontent-qpo-c3="" value="Active">Active</option>
+              <label class="display-block">Category Status</label>
+              <select _ngcontent-qpo-c3="" class="form-control itemformcontrol" data-live-search="true" formControlName="status" required>
+                <option ngcontent-qpo-c3="" value="Active" >Active</option>
                 <option ngcontent-qpo-c3="" value="Inactive">Inactive</option>
               </select>
             </div>
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label>Avatar</label>
+                <div class="profile-upload">
+                  <div class="upload-img">
+                    <img alt="" src="assets/theme/img/user.jpg">
+                  </div>
+                  <div class="upload-input">
+                    <input type="file" class="form-control" formControlName="image">
+                  </div>
+                </div>
+              </div>
+                            </div>
             <div class="m-t-20 text-center">
-              <div class="message">{{this.newscheduleRes?.message}}</div>
-              <button class="btn btn-danger submit-btn" (click)="backtoallScehedules()">Cancel</button>
-              <button class="btn btn-primary submit-btn" (click)="addnewSchedule()">Create Schedule</button>
+              <!-- <div class="message">{{this.getnewDepartments?.message}}</div> -->
+              <button class="btn btn-danger submit-btn" (click)="movetoCategory()">Cancel </button>
+              <button class="btn btn-primary submit-btn" (click)="newCategory()">Create Category</button>
             </div>
           </form>
         </div>

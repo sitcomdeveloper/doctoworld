@@ -96,12 +96,12 @@ updatePassword(updtpwd: any): Observable<any> {
   return this.http.post<any>(API_URL + 'admin/changeadminpassword', updtpwd, {headers: reqHeader});
 }
 // add schedule
-addSchedule(adschdule: any): Observable<any> {
+addSchedule(adschdule: any, doctorid: any): Observable<any> {
   var reqHeader = new HttpHeaders({
     'Content-Type': 'application/json',
     'Authorization': 'Bearer ' + JSON.parse(sessionStorage.getItem('tokenn'))
   })
-  return this.http.post<any>(API_URL + 'admin/adddoctorschedule', adschdule, {headers: reqHeader})
+  return this.http.post<any>(API_URL + 'admin/adddoctorschedule/' + doctorid, adschdule, {headers: reqHeader})
 }
 // get all schedule
 getSchedule(): Observable<any> {
@@ -120,12 +120,12 @@ getschedulebyId(schedleid: any): Observable<any> {
   return this.http.get<any>(API_URL + 'admin/getdoctorschedulebyid/' + schedleid, {headers: reqHeader});
 }
 // update schedule
-updateSchedule(updtschedule: any, IDofschedule: any): Observable<any> {
+updateSchedule(updtschedule: any, doctorId: any,IDofschedule: any): Observable<any> {
   var reqHeader = new HttpHeaders({
     'Content-Type': 'application/json',
     'Authorization': 'Bearer ' + JSON.parse(sessionStorage.getItem('tokenn'))
   })
-  return this.http.post<any>(API_URL + 'admin/editdoctorschedule/' + IDofschedule,updtschedule, {headers: reqHeader})
+  return this.http.post<any>(API_URL + 'admin/editdoctorschedule/' + doctorId + '/' + IDofschedule,updtschedule, {headers: reqHeader})
 }
 // delete schedule
 dltSchedule(rmvschedule: any): Observable<any> {
@@ -136,12 +136,12 @@ dltSchedule(rmvschedule: any): Observable<any> {
   return this.http.post<any>(API_URL + 'admin/deletedoctorschedule/' + rmvschedule, {}, {headers: reqHeader})
 }
 // add doctor
-addDoctor(crtdoctr: any): Observable<any> {
+addDoctor(crtdoctr: any, departmntid: any): Observable<any> {
   var reqHeader = new HttpHeaders({
     'Content-Type': 'application/json',
     'Authorization': 'Bearer ' + JSON.parse(sessionStorage.getItem('tokenn'))
   })
-  return this.http.post<any>(API_URL + 'admin/adddoctor',crtdoctr, {headers: reqHeader})
+  return this.http.post<any>(API_URL + 'admin/adddoctor/' + departmntid ,crtdoctr, {headers: reqHeader})
 }
 // get all doctor
 getDoctor(): Observable<any> {
@@ -160,12 +160,12 @@ getdoctorDetails(doctrID: any): Observable<any> {
   return this.http.get<any>(API_URL + 'admin/getdoctorbyid/' + doctrID, {headers: reqHeader});
 }
 // update doctor
-updateDoctor(updtdr: any, Idofdoctor: any): Observable<any> {
+updateDoctor(updtdr: any, departmentId: any, Idofdoctor: any): Observable<any> {
   var reqHeader = new HttpHeaders({
     'Content-Type': 'application/json',
     'Authorization': 'Bearer ' + JSON.parse(sessionStorage.getItem('tokenn'))
   })
-  return this.http.post<any>(API_URL + 'admin/editdoctorprofile/' + Idofdoctor, updtdr, {headers: reqHeader});
+  return this.http.post<any>(API_URL + 'admin/editdoctorprofile/' + departmentId + '/' + Idofdoctor, updtdr, {headers: reqHeader});
 }
 // delete doctor
 deleteDoctor(dltdr: any): Observable<any> {
@@ -198,5 +198,13 @@ getAppointments(): Observable<any> {
     'Authorization': 'Bearer ' + JSON.parse(sessionStorage.getItem('tokenn'))
   })
   return this.http.get<any>(API_URL + 'admin/getallappointment', {headers: reqHeader});
+}
+// add category
+addCategory(adctegry: any) : Observable<any> {
+  var reqHeader = new HttpHeaders({
+    'Content-Type': 'application/json',
+    'Authorization': 'Bearer ' + JSON.parse(sessionStorage.getItem('tokenn'))
+  })
+  return this.http.post<any>(API_URL + 'admin/addmedicinecategory',adctegry, {headers: reqHeader});
 }
 }

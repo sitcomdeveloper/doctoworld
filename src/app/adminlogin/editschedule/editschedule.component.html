@@ -24,7 +24,7 @@
               <select _ngcontent-qpo-c3="" class="form-control itemformcontrol"
               data-live-search="true" formControlName="drname">
               <option ngcontent-qpo-c3="">Select</option>
-                          <option ngcontent-qpo-c3="" *ngFor = "let doctorName of alldrsRes">{{doctorName?.firstName}} {{doctorName?.lastName}}</option>
+                          <option ngcontent-qpo-c3="" value="{{doctorName?._id}}" *ngFor = "let doctorName of alldrsRes">{{doctorName?.firstName}} {{doctorName?.lastName}}</option>
   </select>
             </div>
                           </div>

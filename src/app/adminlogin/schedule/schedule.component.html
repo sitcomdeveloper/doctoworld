@@ -36,8 +36,8 @@
               <tbody>
                 <tr *ngFor="let detaiils of scheduleDetails">
                   <td><img width="28" height="28" src="assets/theme/img/user.jpg" class="rounded-circle m-r-5"
-                      alt="">{{this.detaiils?.doctorName}}</td>
-                  <td>Cardiology</td>
+                      alt="">{{this.detaiils?.doctorId.firstName}} {{this.detaiils?.doctorId.lastName}}</td>
+                  <td>{{this.detaiils?.doctorId.departmentId?.name}}</td>
                   <td>{{this.detaiils?.availableDays}}</td>
                   <!-- <td>10:00 AM - 7:00 PM</td> -->
                   <td>{{this.detaiils?.startTime}}-{{this.detaiils?.endTime}}</td>

@@ -6,6 +6,8 @@ import { AdddoctorComponent } from './adddoctor/adddoctor.component';
 import { AddscheduleComponent } from './addschedule/addschedule.component';
 import { AdminloginComponent } from './adminlogin.component';
 import { AppointmentsComponent } from './appointments/appointments.component';
+import { CategoryComponent } from './category/category.component';
+import { CategoryaddComponent } from './categoryadd/categoryadd.component';
 import { ChangepasswordComponent } from './changepassword/changepassword.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { DepartmentsComponent } from './departments/departments.component';
@@ -38,7 +40,9 @@ const routes: Routes = [
   {path: 'updatepassword', component: ChangepasswordComponent},
   {path: 'doctors', component: DoctorsComponent},
   {path: 'adddoctor', component: AdddoctorComponent},
-  {path: 'editdoctor/:doctorselectedid', component: EditdoctorComponent}
+  {path: 'editdoctor/:doctorselectedid', component: EditdoctorComponent},
+  {path: 'category', component: CategoryComponent},
+  {path: 'categoryadd', component: CategoryaddComponent}
 ]
 
 @NgModule({

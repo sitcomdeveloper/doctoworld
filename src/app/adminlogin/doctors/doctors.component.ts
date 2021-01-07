@@ -23,7 +23,7 @@ getalldoctors() {
   this.apiService.getDoctor().subscribe(getdrRes => {
     this.fetchalldocts = getdrRes;
     this.alldrsRes = this.fetchalldocts.doctorData.reverse();
-    // console.log('getdrRes', this.alldrsRes);
+    console.log('getdrRes', this.alldrsRes);
   })
 }
   adddoctor() {

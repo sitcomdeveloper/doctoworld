@@ -97,7 +97,7 @@
                               <label>Department</label>
                               <select class="form-control select" formControlName="department">
                                 <option>Select</option>
-                                <option *ngFor = "let dataofdepartment of objectfetchallDepartments">{{dataofdepartment?.name}}</option>
+                                <option value="{{dataofdepartment?._id}}" *ngFor = "let dataofdepartment of objectfetchallDepartments">{{dataofdepartment?.name}}</option>
                               </select>
                             </div>
                           </div>

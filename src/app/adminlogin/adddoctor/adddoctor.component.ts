@@ -14,6 +14,7 @@ export class AdddoctorComponent implements OnInit {
   fetchalldocts: any;
   fetchallDepartments: any;
   objectfetchallDepartments: any;
+  selecteddepartmntID: any;
   constructor(private router: Router, private apiService: ApiService, private fb: FormBuilder) { }
 
   ngOnInit(): void {
@@ -31,12 +32,20 @@ export class AdddoctorComponent implements OnInit {
       postalcode: [''],
       phone: [''],
       status: [''],
-      department: ['']
+      department: [''],
+      departmentid: ['']
     })
     this.fetchdepartments();
   }
 // add new doctor
 addnewDR() {
+  this.objectfetchallDepartments.forEach(element => {
+    if ( element._id === this.addDoctorForm.value.department) {
+      this.addDoctorForm.value.doctorid = element.departmentid;
+      this.selecteddepartmntID = element._id;
+      console.log('doctorid', element._id);
+    }
+  });
   const crtdoctr = {
     firstName: this.addDoctorForm.value.firstname,
     lastName: this.addDoctorForm.value.lastname,
@@ -51,9 +60,9 @@ addnewDR() {
     country: this.addDoctorForm.value.country,
     postalcode: this.addDoctorForm.value.postalcode,
     status: this.addDoctorForm.value.status,
-    department: this.addDoctorForm.value.department,
+    // department: this.addDoctorForm.value.department,
   }
-  this.apiService.addDoctor(crtdoctr).subscribe(adddrres => {
+  this.apiService.addDoctor(crtdoctr, this.selecteddepartmntID).subscribe(adddrres => {
     this.resofnewDR = adddrres;
     if(this.resofnewDR.message) {
       setTimeout(() => {
@@ -79,6 +88,7 @@ fetchdepartments() {
   this.apiService.getDepartments().subscribe(ftchdepartmntsRes => {
     this.fetchallDepartments = ftchdepartmntsRes;
     this.objectfetchallDepartments = this.fetchallDepartments.departmentDeatil.reverse();
+    console.log('department', this.objectfetchallDepartments);
   })
 }
 }

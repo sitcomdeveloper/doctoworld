@@ -27,10 +27,12 @@ import { AdddoctorComponent } from './adddoctor/adddoctor.component';
 import { EditdoctorComponent } from './editdoctor/editdoctor.component';
 import { DeletescheduleComponent } from './deleteschedule/deleteschedule.component';
 import { DeletedoctorComponent } from './deletedoctor/deletedoctor.component';
+import { CategoryComponent } from './category/category.component';
+import { CategoryaddComponent } from './categoryadd/categoryadd.component';
 
 
 @NgModule({
-  declarations: [AdminloginComponent, DashboardComponent, SidebarComponent, DepartmentsComponent, HeaderComponent, AppointmentsComponent, AddappointmentsComponent, AdddepartmentsComponent, EditdepartmentComponent, MyprofileComponent, EditprofileComponent, SettingsComponent, PatientsComponent, ScheduleComponent, AddscheduleComponent, ChangepasswordComponent, DoctorsComponent, EditscheduleComponent, AdddoctorComponent, EditdoctorComponent, DeletescheduleComponent, DeletedoctorComponent],
+  declarations: [AdminloginComponent, DashboardComponent, SidebarComponent, DepartmentsComponent, HeaderComponent, AppointmentsComponent, AddappointmentsComponent, AdddepartmentsComponent, EditdepartmentComponent, MyprofileComponent, EditprofileComponent, SettingsComponent, PatientsComponent, ScheduleComponent, AddscheduleComponent, ChangepasswordComponent, DoctorsComponent, EditscheduleComponent, AdddoctorComponent, EditdoctorComponent, DeletescheduleComponent, DeletedoctorComponent, CategoryComponent, CategoryaddComponent],
   imports: [
     CommonModule, AdminloginRoutingModule, FormsModule, ReactiveFormsModule, ModalModule.forRoot(), TooltipModule.forRoot(),
   ],

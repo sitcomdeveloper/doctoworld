@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { timeStamp } from 'console';
 import { ApiService } from 'src/app/api.service';
 
 @Component({
@@ -103,11 +104,11 @@ export class SidebarComponent implements OnInit {
     const admnlgot = {}
     this.apiService.adminLogout(admnlgot).subscribe(adminlogoutRes => {
       this.logoutres = adminlogoutRes;
-      // console.log('logoutres', adminlogoutRes);
+      console.log('logoutres', adminlogoutRes);
       setTimeout(() => {
         this.router.navigateByUrl('adminlogin');
       },
-        100);
+        2000);
         // window.sessionStorage.clear();
     })
 window.sessionStorage.clear();
@@ -118,5 +119,9 @@ window.sessionStorage.clear();
   // update profile
   editProfile() {
     this.router.navigateByUrl("adminlogin/updateprofile");
+  }
+  // for showing category
+  category() {
+    this.router.navigateByUrl("adminlogin/category");
   }
 }

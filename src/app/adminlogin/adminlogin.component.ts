@@ -13,6 +13,13 @@ adminLoginForm: FormGroup
   loginuserMessage: any;
   getLoginDetails: any;
   loginToken: any;
+  errorshowing: any;
+  showerrormsg: any;
+  showactualerrormessage: any;
+  errorblock: any;
+  errors: any;
+  successmsg = false;
+  errormsg = false;
   constructor(private router: Router, private apiService: ApiService, private fb: FormBuilder) { }
 
 loadScript(url: string) {
@@ -58,6 +65,8 @@ loadScript(url: string) {
       password: this.adminLoginForm.value.passwrd,
     }
     this.apiService.adminLogin(adminlgn).subscribe(loginRes => {
+      this.successmsg = true;
+      this.errormsg = false;
       this.loginuserMessage = loginRes;
       this.getLoginDetails = this.loginuserMessage.adminData;
       this.loginToken = this.loginuserMessage.token;
@@ -73,12 +82,23 @@ loadScript(url: string) {
       }
     },
     err => {
-      if(err.status === 500 || err.status === 400 || err.status === 401 || err.status === 403)
-      alert('Invalid Credentials');
-      this.router.navigateByUrl('adminlogin');
       console.log('error', err);
-     // check error status code is 500, if so, do some action
+      // if(err.status === 500 || err.status === 400 || err.status === 401 || err.status === 403)
+      // alert('Invalid Credentials');
+      // this.router.navigateByUrl('adminlogin');
+      this.errorblock = err;
+      this.successmsg = false;
+      this.errormsg = true;
+      this.errors = this.errorblock.error.message?.message;
+      console.log('errors', this.errors);
     }
+
+    // error => {
+    //   this.showerrormsg = error.message
+    //   this.showactualerrormessage = this.showerrormsg.message
+    //   console.log('actualerror', this.showactualerrormessage);
+    //   }
+
     )
   }
 }

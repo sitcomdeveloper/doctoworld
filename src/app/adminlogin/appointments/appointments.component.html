@@ -39,8 +39,8 @@
               <td>APP-{{appointmentData?._id}}</td>
               <td><img width="28" height="28" src="assets/theme/img/user.jpg" class="rounded-circle m-r-5" alt="">{{appointmentData?.patientName}}</td>
               <td>{{appointmentData?.age}}</td>
-              <td>{{appointmentData?.doctorName}}</td>
-              <td>{{appointmentData?.department}}</td>
+              <td>{{appointmentData?.doctorId.firstName}} {{appointmentData?.doctorId.lastName}}</td>
+              <td>{{appointmentData?.doctorId.departmentId.name}}</td>
               <td>{{appointmentData?.appointmentDate}}</td>
               <td>{{appointmentData?.appointmentTime}}</td>
               <td><span class="custom-badge status-green">{{appointmentData?.status}}</span></td>

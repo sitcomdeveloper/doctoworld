@@ -14,6 +14,7 @@ import { DeletescheduleComponent } from '../deleteschedule/deleteschedule.compon
 export class ScheduleComponent implements OnInit {
   fetScheduleRes: any;
   scheduleDetails: any;
+  doctordtls: any;
 
   constructor(private router: Router, private apiService: ApiService, private fb: FormBuilder, private modalService: BsModalService,) { }
   bsModalRef: BsModalRef;
@@ -26,7 +27,10 @@ export class ScheduleComponent implements OnInit {
     this.apiService.getSchedule().subscribe(getschedulesRes => {
       this.fetScheduleRes = getschedulesRes;
        this.scheduleDetails = this.fetScheduleRes.scheduleDetail.reverse();
-      // console.log('fetScheduleRes', this.scheduleDetails);
+       this.doctordtls = this.scheduleDetails.doctorId;
+       console.log('dfdfs', this.fetScheduleRes.doctorId);
+      console.log('fetScheduleRes', this.scheduleDetails);
+      console.log('sdfwr', this.scheduleDetails[0].doctorId);
     })
   }
   addSchedule() {

@@ -16,6 +16,7 @@ export class EditdoctorComponent implements OnInit {
   updateddoctorres: any;
   objectfetchallDepartments: any;
   fetchallDepartments: any;
+  selecteddepartmntID: any;
 
   constructor(private router: Router, private apiService: ApiService, private fb:FormBuilder, private route: ActivatedRoute) { }
 
@@ -32,7 +33,8 @@ export class EditdoctorComponent implements OnInit {
       postalcode: [''],
       phone: [''],
       status: [''],
-      department: ['']
+      department: [''],
+      departmentid: ['']
     })
 
     this.fetchdepartments();
@@ -57,7 +59,7 @@ export class EditdoctorComponent implements OnInit {
       status: this.slecteddrDetails.status,
       department: this.slecteddrDetails.department,
       })
-      // console.log('resofdrdtls', this.slecteddrDetails);
+      console.log('resofdrdtls', this.slecteddrDetails);
     })
   }
   backtodoctor() {
@@ -65,6 +67,13 @@ export class EditdoctorComponent implements OnInit {
   }
   // update doctor
   updatedoctors() {
+    this.objectfetchallDepartments.forEach(element => {
+      if ( element._id === this.editdoctorForm.value.department) {
+        this.editdoctorForm.value.doctorid = element.departmentid;
+        this.selecteddepartmntID = element._id;
+        console.log('doctorid', element._id);
+      }
+    });
     const updtdr = {
       firstName: this.editdoctorForm.value.firstname,
       lastName: this.editdoctorForm.value.lastname,
@@ -77,9 +86,9 @@ export class EditdoctorComponent implements OnInit {
       postalcode: this.editdoctorForm.value.postalcode,
       mobile: this.editdoctorForm.value.phone,
       status: this.editdoctorForm.value.status,
-      department: this.editdoctorForm.value.department,
+      // department: this.editdoctorForm.value.department,
     }
-    this.apiService.updateDoctor(updtdr, this.assignfetchIDofdoctor).subscribe(updtdrRes => {
+    this.apiService.updateDoctor(updtdr, this.selecteddepartmntID, this.assignfetchIDofdoctor).subscribe(updtdrRes => {
       this.updateddoctorres = updtdrRes;
       if(this.updateddoctorres.message === 'Doctor details updated successfully...') {
         setTimeout(() => {

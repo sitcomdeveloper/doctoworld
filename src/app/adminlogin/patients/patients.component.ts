@@ -21,7 +21,7 @@ export class PatientsComponent implements OnInit {
   this.apiService.getPatients().subscribe(getpatientsRes => {
     this.resofgetPatients = getpatientsRes;
     this.patientsData = this.resofgetPatients.patientData
-    // console.log('resofgetPatients', this.patientsData);
+    console.log('resofgetPatients', this.patientsData);
   })
     }
 }

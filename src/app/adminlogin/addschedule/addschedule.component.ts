@@ -14,6 +14,7 @@ export class AddscheduleComponent implements OnInit {
   addscheduleForm: FormGroup
   fetchalldocts: any;
   alldrsRes: any;
+  selecteddrID: any;
 
   constructor(private router: Router, private apiService: ApiService, private fb: FormBuilder) {
   }
@@ -41,6 +42,7 @@ export class AddscheduleComponent implements OnInit {
 
     this.addscheduleForm = this.fb.group({
       doctorname: [''],
+      doctorid: [''],
       availabledays: [''],
       starttime: [''],
       endtime: [''],
@@ -54,15 +56,22 @@ export class AddscheduleComponent implements OnInit {
   }
   // add doctor schedule
   addnewSchedule() {
+    this.alldrsRes.forEach(element => {
+      if ( element._id === this.addscheduleForm.value.doctorname) {
+        this.addscheduleForm.value.doctorid = element.firstName + element.lastName;
+        this.selecteddrID = element._id;
+        console.log('doctorid', element._id);
+      }
+    });
     const adschdule = {
-      doctorName: this.addscheduleForm.value.doctorname,
+      // doctorName: this.addscheduleForm.value.doctorname,
       availableDays: this.addscheduleForm.value.availabledays,
       startTime: this.addscheduleForm.value.starttime,
       endTime: this.addscheduleForm.value.endtime,
       message: this.addscheduleForm.value.msg,
       status: this.addscheduleForm.value.status,
     }
-    this.apiService.addSchedule(adschdule).subscribe(addscheduleRes => {
+    this.apiService.addSchedule(adschdule, this.selecteddrID).subscribe(addscheduleRes => {
       this.newscheduleRes = addscheduleRes;
       if(this.newscheduleRes.message === 'Schedule added successfully...') {
         setTimeout(() => {
@@ -77,6 +86,7 @@ export class AddscheduleComponent implements OnInit {
     this.apiService.getDoctor().subscribe(getdrRes => {
       this.fetchalldocts = getdrRes;
       this.alldrsRes = this.fetchalldocts.doctorData.reverse();
+      console.log('getdrres', this.alldrsRes);
     })
   }
 }
