@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { timeStamp } from 'console';
 import { ApiService } from 'src/app/api.service';
 
 @Component({
