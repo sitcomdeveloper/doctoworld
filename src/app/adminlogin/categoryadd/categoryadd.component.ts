@@ -30,7 +30,8 @@ newCategory() {
   const adctegry = {
     name: this.categoryAddForm.value.cname,
     medicineCategory: this.categoryAddForm.value.medicinecategory,
-    status: this.categoryAddForm.value.status
+    status: this.categoryAddForm.value.status,
+    image: this
   }
   this.apiservice.addCategory(adctegry).subscribe(newctegryRes => {
     this.resofnewCategory = newctegryRes;
